@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Section, { TitreSection } from '@/components/Section';
 import Compteur from '@/components/Compteur';
-import { compteur, liens } from '@/content/site';
+import { liens } from '@/content/site';
+import { chiffresMobilisation as chiffres, dateDuReleve } from '@/lib/compteur';
 
 export const metadata: Metadata = {
   title: 'Les signataires',
@@ -21,7 +22,7 @@ export default function Signataires() {
               Les <span className="pastille">signataires</span>
             </TitreSection>
             <p className="mt-6 max-w-2xl text-lg text-encre/80">
-              {fmt.format(compteur.signataires)} personnes et plus de {compteur.organisations}{' '}
+              {fmt.format(chiffres.signataires)} personnes et {fmt.format(chiffres.organisations)}{' '}
               organisations nationales et locales ont signé la lettre ouverte au président de la
               République.
             </p>
@@ -29,7 +30,7 @@ export default function Signataires() {
               Seules les signatures dont les auteur·es ont accepté la publication apparaissent ici.
             </p>
           </div>
-          <Compteur />
+          <Compteur chiffres={chiffres} />
         </div>
       </Section>
 

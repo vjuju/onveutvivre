@@ -45,7 +45,7 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-trait bg-fond/95 backdrop-blur-md">
       <div className="mx-auto flex h-[4.5rem] max-w-contenu items-center justify-between gap-4 px-4 sm:px-6">
-        <LogoLien largeur="3.6rem" />
+        <LogoLien largeur="2.9rem" />
 
         {/* Menu central — bureau */}
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navigation principale">

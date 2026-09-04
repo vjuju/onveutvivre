@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  # Reconstruction quotidienne : `prebuild` relève les chiffres de la
+  # mobilisation sur 26septembre.org et les fige dans le HTML statique.
+  schedule:
+    - cron: '17 5 * * *'
 
 permissions:
   contents: read

@@ -23,6 +23,22 @@ export const liens = {
   don: 'https://26septembre.org/',
 };
 
+/**
+ * Module de signature.
+ *
+ * `envoiDirect: false` — le formulaire d'onveutvivre.fr renvoie vers celui de
+ * 26septembre.org, qui tient le registre. Rien n'est écrit depuis ici.
+ *
+ * `envoiDirect: true` — soumission classique vers leur endpoint. Techniquement
+ * possible sans CORS (une soumission de formulaire inter-domaines n'y est pas
+ * soumise), mais cela écrit dans LEUR base et fait quitter notre domaine au
+ * visiteur : à n'activer qu'avec l'accord explicite de l'équipe 26septembre.
+ */
+export const formulaire = {
+  envoiDirect: false,
+  endpoint: 'https://26septembre.org/api/signer',
+};
+
 export const compteur = {
   signataires: 25552,
   objectif: 50000,

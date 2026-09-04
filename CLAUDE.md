@@ -97,6 +97,41 @@ Deux variantes, dans `components/Logo.tsx` :
 - `complet` — six lignes, avec canicules / incendies / empoisonnements ;
 - `compact` — ON / VEUT / [VIVRE], pour l'entête et le pied-de-page.
 
+## Ce qu'on a relevé de 26septembre.org (4 sept. 2026)
+
+Leur site est un **Astro en SSR** derrière leur propre domaine. Supabase est
+appelé **côté serveur uniquement** : aucune clé Supabase ne circule dans le
+navigateur, et il n'y a rien à « brancher » côté client.
+
+| Ce qu'ils exposent | Forme |
+|---|---|
+| `GET /api/compteur` | `{ signataires, organisations, objectif }` |
+| `POST /api/signer` | soumission du formulaire de signature |
+| `/carte` | marqueurs **rendus dans le HTML**, pas d'API |
+
+**Aucun de ces endpoints n'envoie d'en-tête CORS.** Vérifié depuis
+`https://onveutvivre.fr` : `fetch()` échoue en `TypeError: Failed to fetch` sur
+les trois. Rien ne peut donc être consommé depuis le navigateur d'un visiteur.
+
+### Ce qu'on en fait
+
+- **Compteur** : relevé **à la construction** par `scripts/maj-chiffres.mjs`
+  (le CORS ne s'applique pas au serveur), figé dans `content/chiffres.json`.
+  Redéployer suffit à rafraîchir les chiffres. Aucun visiteur ne tape sur leur
+  serveur.
+- **Formulaire** : `components/Formulaire.tsx` reproduit **exactement** leurs
+  noms de champs, piège à robots `site_web` compris. Piloté par
+  `formulaire.envoiDirect` dans `content/site.ts` :
+  - `false` (défaut) — renvoie vers leur formulaire, rien n'est écrit d'ici ;
+  - `true` — soumission classique vers `POST /api/signer`. Techniquement
+    possible sans CORS (une soumission de formulaire inter-domaines n'y est pas
+    soumise), **mais cela écrit dans leur base** et fait quitter notre domaine
+    au visiteur. À n'activer qu'avec leur accord explicite.
+- **Carte** : leurs données ne sont exposées nulle part en JSON. On n'aspire pas
+  leur HTML — c'est fragile et ce n'est pas à nous de dupliquer leur base.
+  `components/Carte.tsx` lit `content/mobilisations.ts` et attend soit ce
+  fichier rempli, soit un endpoint de leur part (voir `docs/endpoint-carte.md`).
+
 ## Points d'attention
 
 - `public/_redirects` ne fait **pas** de correspondance sur le nom d'hôte chez

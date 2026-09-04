@@ -5,6 +5,8 @@ import Appel from '@/components/Appel';
 import Compteur from '@/components/Compteur';
 import Carrousel from '@/components/Carrousel';
 import Carte from '@/components/Carte';
+import Formulaire from '@/components/Formulaire';
+import { chiffresMobilisation } from '@/lib/compteur';
 import {
   actions,
   calendrier,
@@ -41,8 +43,8 @@ export default function Accueil() {
               <Marque largeur="clamp(10rem, 22vw, 15rem)" />
             </div>
 
-            <div id="signer" className="scroll-mt-28 mx-auto w-full max-w-md">
-              <Compteur />
+            <div className="mx-auto w-full max-w-md">
+              <Compteur chiffres={chiffresMobilisation} />
             </div>
           </div>
 
@@ -70,8 +72,24 @@ export default function Accueil() {
         </div>
       </section>
 
+      {/* ─────────────────────────────── Signer l'appel */}
+      <Section id="signer">
+        <div className="mx-auto max-w-xl">
+          <TitreSection surtitre="Lettre ouverte au président de la République" className="text-center">
+            Je signe <span className="pastille">l&apos;appel.</span>
+          </TitreSection>
+          <p className="mx-auto mt-5 max-w-lg text-center text-encre/75">
+            Votre signature rejoint le registre du 26 septembre. Le prénom, le nom, l&apos;email et le
+            code postal suffisent.
+          </p>
+          <div className="mt-8">
+            <Formulaire />
+          </div>
+        </div>
+      </Section>
+
       {/* ─────────────────────────────── Bandeau 2 · Passer à l'action */}
-      <Section id="agir">
+      <Section id="agir" fond="beige">
         <TitreSection surtitre="Signer ne suffit pas">
           Signez.
           <br />
@@ -125,7 +143,7 @@ export default function Accueil() {
       </Section>
 
       {/* ─────────────────────────────── Bandeau 3 · Carte des mobilisations */}
-      <Section id="carte" fond="beige">
+      <Section id="carte">
         <TitreSection surtitre="La marche du 26">
           La carte des <span className="pastille">mobilisations</span>
         </TitreSection>
@@ -135,7 +153,7 @@ export default function Accueil() {
       </Section>
 
       {/* ─────────────────────────────── Bandeau 4 · Pourquoi maintenant */}
-      <Section id="pourquoi">
+      <Section id="pourquoi" fond="beige">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <TitreSection surtitre="Pourquoi maintenant ?">
             L&apos;été a brûlé,
@@ -176,7 +194,7 @@ export default function Accueil() {
       </Section>
 
       {/* ─────────────────────────────── Bandeau 5 · Nos trois plans */}
-      <Section id="trois-plans" fond="beige">
+      <Section id="trois-plans">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <TitreSection surtitre="Ce que nous demandons">
             Trois plans,
@@ -221,7 +239,7 @@ export default function Accueil() {
       </Section>
 
       {/* ─────────────────────────────── Bandeau 6 · Qui sommes-nous */}
-      <Section id="qui">
+      <Section id="qui" fond="beige">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <TitreSection surtitre="Qui sommes-nous ?">
             Un mouvement né
@@ -255,7 +273,7 @@ export default function Accueil() {
       </Section>
 
       {/* ─────────────────────────────── Bandeau 7 · Calendrier */}
-      <Section id="calendrier" fond="beige">
+      <Section id="calendrier">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
           <div>
             <TitreSection surtitre="Actualités">

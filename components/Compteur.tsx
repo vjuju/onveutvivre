@@ -1,9 +1,16 @@
-import { compteur, liens } from '@/content/site';
+import { dateDuReleve, type Chiffres } from '@/lib/compteur';
 
 const fmt = new Intl.NumberFormat('fr-FR');
 
-export default function Compteur() {
-  const pct = Math.min(100, Math.round((compteur.signataires / compteur.objectif) * 100));
+export default function Compteur({
+  chiffres,
+  avecBoutons = true,
+}: {
+  chiffres: Chiffres;
+  /** false quand le formulaire de signature est affiché juste en dessous */
+  avecBoutons?: boolean;
+}) {
+  const pct = Math.min(100, Math.round((chiffres.signataires / chiffres.objectif) * 100));
 
   return (
     <div className="rounded-2xl border border-trait bg-fond p-6 shadow-lg shadow-encre/[0.06] sm:p-8">
@@ -11,10 +18,10 @@ export default function Compteur() {
         Lettre ouverte au président de la République
       </p>
 
-      <p className="titre mt-5 text-5xl text-encre sm:text-6xl">{fmt.format(compteur.signataires)}</p>
+      <p className="titre mt-5 text-5xl text-encre sm:text-6xl">{fmt.format(chiffres.signataires)}</p>
       <p className="mt-1 text-sm text-encre2">
         signataires · <span className="font-semibold text-encre">{pct} %</span> de l&apos;objectif des{' '}
-        {fmt.format(compteur.objectif)}
+        {fmt.format(chiffres.objectif)}
       </p>
 
       <div
@@ -28,23 +35,22 @@ export default function Compteur() {
         <div className="h-full rounded-full bg-orange transition-all" style={{ width: `${pct}%` }} />
       </div>
 
-      <div className="mt-7 space-y-3">
-        <a href={liens.signer} target="_blank" rel="noopener noreferrer" className="bouton-primaire w-full">
-          ✍ Je signe l&apos;appel
-        </a>
-        <a
-          href={liens.signerOrganisation}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bouton-secondaire w-full"
-        >
-          Je signe pour une organisation
-        </a>
-      </div>
+      {avecBoutons && (
+        <div className="mt-7 space-y-3">
+          <a href="#signer" className="bouton-primaire w-full">
+            ✍ Je signe l&apos;appel
+          </a>
+          <a href="#signer" className="bouton-secondaire w-full">
+            Je signe pour une organisation
+          </a>
+        </div>
+      )}
 
       <p className="mt-5 text-xs leading-relaxed text-encre2">
-        Plus de {compteur.organisations} organisations nationales et locales soutiennent déjà
-        l&apos;appel, et {compteur.volontaires} volontaires organisent les marches.
+        {fmt.format(chiffres.organisations)} organisations nationales et locales soutiennent déjà
+        l&apos;appel.
+        <br />
+        <span className="text-encre2/80">Chiffres relevés le {dateDuReleve(chiffres)}.</span>
       </p>
     </div>
   );
