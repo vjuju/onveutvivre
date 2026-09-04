@@ -65,37 +65,65 @@ presque jamais avoir à toucher aux composants pour une mise à jour de texte.
 | `fond` | `#FFFCF5` | fond général |
 | `fond2` | `#FAF4E9` | cartes, blocs, bandeaux alternés |
 | `champ` | `#F0E8D6` | champs de formulaire |
-| `encre` | `#19120B` | textes, **et fond du bandeau d'appel** |
+| `encre` | `#19120B` | textes |
 | `encre2` | `#6E6154` | textes secondaires |
 | `trait` | `#E6DCC9` | filets, bordures |
-| `orange` | `#EE7D3A` | aplats, pastilles, logo |
-| `orange-fonce` | `#D5702E` | fond des boutons |
-| `orange-lien` | `#B0521C` | liens et petits textes accentués |
+| `orange` | `#FF751F` | **aplats uniquement** — pastilles, logo |
+| `orange-fonce` | `#BB5210` | fond des boutons (texte crème, 4,8:1) |
+| `orange-lien` | `#A8480F` | liens et petits textes (5,7:1 sur le crème) |
 
-Accents : vert `#6BC24A`, bleu `#4BA9F0`, rouge `#EE3B3B` — en **aplat** uniquement.
-Pour du texte, utiliser les variantes sourdes `vert-texte`, `bleu-texte`, `rouge-texte` :
-les vives ne passent pas le contraste AA sur fond clair.
+L'orange de la charte ne monte qu'à **2,4:1** sur le crème : il est illisible en
+texte. D'où la règle : `orange` en aplat, et deux dérivés assombris pour tout ce
+qui est lu. Même logique pour les accents vert / bleu / rouge, qui ont chacun une
+variante `-texte`.
 
-Même logique pour l'orange : `#EE7D3A` ne descend qu'à 2,7:1 sur le crème. Un titre
-« accentué » se fait donc avec la **pastille** (aplat orange + texte crème), pas avec
-du texte orange — c'est le procédé de la marque elle-même.
+Un titre « accentué » se fait avec la **pastille** (aplat orange + texte crème),
+jamais avec du texte orange — c'est le procédé de la marque elle-même.
 
-Le seul bandeau sur fond sombre est le **bandeau d'appel** (`bg-encre`), conformément
-à la ligne « textes, fond du bandeau d'appel » du brief.
+### Typographies
+
+- **Titres : Gagalin** dans la charte. Gagalin est *free for personal use* :
+  l'usage par une organisation exige une **licence commerciale Fontfabric**.
+  Tant qu'elle n'est pas achetée, `public/fonts/titres.woff2` contient
+  **Lilita One** (SIL OFL), le substitut libre le plus proche.
+  Pour basculer : déposer le woff2 de Gagalin sous ce même nom, puis
+  **recalculer les coefficients `.mot-*`** de `globals.css` à partir des chasses
+  réelles de la police (`taille = largeur_du_bloc ÷ chasse_du_mot_à_1em`).
+- **Texte : Poppins** (SIL OFL), en 400/500/600/700.
+
+Les deux sont **auto-hébergées** dans `public/fonts` : aucun appel à Google
+Fonts, donc aucune IP de visiteur envoyée à un tiers.
 
 ### Le logo
 
-Titres en **Rubik Dirt**, capitales, via la classe `.titre`.
+Règle de construction : **chaque mot occupe exactement la même largeur**. C'est
+la taille du mot qui varie selon son nombre de lettres, jamais sa proportion —
+on ne déforme jamais horizontalement. Coefficients dans `globals.css` (`.mot-*`).
 
-Règle de construction du logo : **chaque mot occupe exactement la même largeur**.
-C'est la taille du mot qui varie selon son nombre de lettres, jamais sa proportion —
-on ne déforme jamais horizontalement. Les coefficients sont dans `globals.css`
-(`.mot-*`) et se calculent ainsi : `taille = largeur_du_bloc ÷ chasse_du_mot_à_1em`.
-Si un mot change, recalculer sa chasse dans Rubik Dirt plutôt que d'ajuster à l'œil.
+Deux variantes dans `components/Logo.tsx` : `complet` (six lignes) et `compact`
+(ON / VEUT / [VIVRE], pour l'entête et le pied-de-page).
 
-Deux variantes, dans `components/Logo.tsx` :
-- `complet` — six lignes, avec canicules / incendies / empoisonnements ;
-- `compact` — ON / VEUT / [VIVRE], pour l'entête et le pied-de-page.
+### Accentuations dans les textes
+
+Les textes de `content/site.ts` acceptent `**du gras**`. Le rendu passe par
+`components/RichText.tsx` (`<Accentue>`, `<Paragraphe>`, `<Liste>`). C'est
+volontairement minimal : juste ce qu'il faut pour qu'un texte long reste lisible
+en diagonale, sans embarquer un moteur Markdown.
+
+## Architecture des pages
+
+La page d'accueil **s'arrête à la carte des mobilisations**. Le reste vit dans de
+vraies pages, avec de vraies URLs pour la navigation :
+
+| URL | Contenu |
+|---|---|
+| `/` | lockup + compteur, formulaire de signature, carte |
+| `/appel/` | pourquoi maintenant, chiffres clés, citations, texte intégral |
+| `/nos-trois-plans/` | les trois plans et leur financement |
+| `/agir/` | les trois façons d'agir, en faire plus, qui sommes-nous |
+| `/actualites/` | le calendrier des rendez-vous |
+| `/kits/` | affiches et flyers, logos, charte |
+| `/signataires/` | compteur, organisations, témoignages |
 
 ## Ce qu'on a relevé de 26septembre.org (4 sept. 2026)
 

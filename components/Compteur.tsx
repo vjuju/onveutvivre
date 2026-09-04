@@ -14,8 +14,10 @@ export default function Compteur({
 
   return (
     <div className="rounded-2xl border border-trait bg-fond p-6 shadow-lg shadow-encre/[0.06] sm:p-8">
-      <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-lien">
-        Lettre ouverte au président de la République
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-lien">
+        Appel à mobilisation nationale
+        <span className="mx-1.5 text-encre2">·</span>
+        Samedi 26 septembre 2026
       </p>
 
       <p className="titre mt-5 text-5xl text-encre sm:text-6xl">{fmt.format(chiffres.signataires)}</p>

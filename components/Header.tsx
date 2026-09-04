@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { LogoLien } from './Logo';
-import { liens } from '@/content/site';
 
 const sousMenuMarche = [
   { label: 'La carte des mobilisations', href: '/#carte' },
@@ -12,9 +11,9 @@ const sousMenuMarche = [
 ];
 
 const navigation = [
-  { label: "L'appel", href: '/#appel' },
-  { label: 'Nos trois plans', href: '/#trois-plans' },
-  { label: 'Agir avec nous', href: '/#agir' },
+  { label: "L'appel", href: '/appel/' },
+  { label: 'Nos trois plans', href: '/nos-trois-plans/' },
+  { label: 'Agir avec nous', href: '/agir/' },
 ];
 
 export default function Header() {
@@ -95,7 +94,7 @@ export default function Header() {
           </div>
 
           <Link
-            href="/#calendrier"
+            href="/actualites/"
             className="rounded-lg px-3 py-2 text-sm font-medium text-encre/75 transition hover:bg-fond2 hover:text-encre"
           >
             Actualités
@@ -103,14 +102,9 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={liens.signer}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bouton-primaire hidden !px-5 !py-2.5 !text-xs sm:inline-flex"
-          >
+          <Link href="/#signer" className="bouton-primaire hidden !px-5 !py-2.5 !text-xs sm:inline-flex">
             Signer l&apos;appel
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOuvertMobile((v) => !v)}
@@ -132,7 +126,7 @@ export default function Header() {
       {/* Menu mobile */}
       {ouvertMobile && (
         <nav className="border-t border-trait bg-fond2 px-4 pb-6 pt-2 lg:hidden" aria-label="Navigation mobile">
-          {[...navigation, { label: 'Actualités', href: '/#calendrier' }].map((n) => (
+          {[...navigation, { label: 'Actualités', href: '/actualites/' }].map((n) => (
             <Link
               key={n.href}
               href={n.href}
@@ -153,9 +147,9 @@ export default function Header() {
               {s.label}
             </Link>
           ))}
-          <a href={liens.signer} target="_blank" rel="noopener noreferrer" className="bouton-primaire mt-5 w-full">
+          <Link href="/#signer" onClick={() => setOuvertMobile(false)} className="bouton-primaire mt-5 w-full">
             Signer l&apos;appel
-          </a>
+          </Link>
         </nav>
       )}
     </header>

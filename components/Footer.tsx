@@ -1,24 +1,25 @@
 import Link from 'next/link';
 import { Marque } from './Logo';
+import { Instagram, Facebook, Telegram, Linktree } from './IconesReseaux';
 import { liens, contact, site } from '@/content/site';
 
 const colonnes = [
   {
     titre: "L'appel à mobilisation",
     entrees: [
-      { label: 'Lire le texte', href: '/#appel' },
-      { label: "Signer l'appel", href: liens.signer, externe: true },
-      { label: 'Nos trois plans', href: '/#trois-plans' },
-      { label: 'Qui sommes-nous', href: '/#qui' },
+      { label: "Lire l'appel du 26 septembre", href: '/appel/' },
+      { label: "Signer l'appel", href: '/#signer' },
+      { label: 'Nos trois plans', href: '/nos-trois-plans/' },
       { label: 'Les signataires', href: '/signataires/' },
     ],
   },
   {
     titre: 'Agir avec nous',
     entrees: [
-      { label: 'Rejoindre Telegram', href: liens.telegram, externe: true },
+      { label: 'Agir avec nous', href: '/agir/' },
       { label: 'La carte des mobilisations', href: '/#carte' },
       { label: 'Kits et documents', href: '/kits/' },
+      { label: 'Actualités', href: '/actualites/' },
     ],
   },
   {
@@ -26,11 +27,16 @@ const colonnes = [
     entrees: [
       { label: 'Nous écrire', href: liens.contact, externe: true },
       { label: 'Contact presse', href: liens.presse, externe: true },
-      { label: 'Instagram', href: liens.instagram, externe: true },
-      { label: 'Facebook', href: liens.facebook, externe: true },
-      { label: 'Telegram', href: liens.telegram, externe: true },
+      { label: 'Faire un don', href: liens.don, externe: true },
     ],
   },
+];
+
+const reseaux = [
+  { nom: 'Instagram', href: liens.instagram, Icone: Instagram },
+  { nom: 'Facebook', href: liens.facebook, Icone: Facebook },
+  { nom: 'Telegram', href: liens.telegram, Icone: Telegram },
+  { nom: 'Tous nos liens', href: liens.linktree, Icone: Linktree },
 ];
 
 export default function Footer() {
@@ -50,6 +56,24 @@ export default function Footer() {
               Partout en France, dans les métropoles et dans les bourgs de mille habitants, pour le
               climat, le vivant, la paix et la justice sociale.
             </p>
+
+            {/* Réseaux sociaux */}
+            <ul className="mt-6 flex items-center gap-2">
+              {reseaux.map(({ nom, href, Icone }) => (
+                <li key={nom}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={nom}
+                    title={nom}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-trait bg-fond text-encre2 transition hover:border-orange hover:bg-orange hover:text-fond"
+                  >
+                    <Icone />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {colonnes.map((c) => (

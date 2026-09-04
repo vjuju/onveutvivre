@@ -15,7 +15,7 @@ export default function Appel() {
         aria-controls="texte-appel"
         className="group flex w-full items-center justify-between gap-4 rounded-xl border border-trait bg-fond px-5 py-4 text-left transition hover:border-orange"
       >
-        <span className="titre text-lg text-orange-lien sm:text-xl">✍ Lire l&apos;appel #OnVeutVivre</span>
+        <span className="titre text-lg text-orange-lien sm:text-xl">✍ Lire l&apos;appel du 26 septembre</span>
         <svg
           width="16"
           height="10"

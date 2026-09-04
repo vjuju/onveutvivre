@@ -2,25 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────── Typographies
+   Titres — la charte demande **Gagalin**. Gagalin est « free for personal use »
+   uniquement : tout usage par une organisation exige une licence commerciale
+   auprès de Fontfabric. En attendant qu'elle soit achetée, `titres.woff2`
+   contient **Lilita One** (SIL Open Font License), le substitut libre le plus
+   proche : même graisse, mêmes terminaisons arrondies, même esprit d'affiche.
+
+   Pour basculer sur Gagalin le jour où la licence est acquise : déposer le
+   woff2 sous `public/fonts/titres.woff2` et recalculer les coefficients
+   `.mot-*` ci-dessous à partir des chasses réelles de la police.
+
+   Texte — Poppins (SIL OFL), auto-hébergée comme le reste : aucun appel à
+   Google Fonts, donc aucune IP de visiteur envoyée à un tiers.            */
+
 @font-face {
-  font-family: 'Rubik Dirt';
-  src: url('/fonts/rubik-dirt.woff2') format('woff2');
+  font-family: 'Titres';
+  src: url('/fonts/titres.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik';
-  src: url('/fonts/rubik.woff2') format('woff2');
-  font-weight: 300 900;
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --font-titre: 'Rubik Dirt';
-  --font-corps: 'Rubik';
+  --font-titre: 'Titres';
+  --font-corps: 'Poppins';
   color-scheme: light;
 }
 
@@ -38,12 +73,12 @@ body {
 }
 
 ::selection {
-  background: #ee7d3a;
+  background: #ff751f;
   color: #19120b;
 }
 
 :focus-visible {
-  outline: 3px solid #b0521c;
+  outline: 3px solid #a8480f;
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -57,21 +92,20 @@ body {
 }
 
 @layer components {
-  /* Titres de la charte : Rubik Dirt, capitales, interlettrage serré */
   .titre {
     font-family: var(--font-titre), Impact, sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.005em;
-    line-height: 0.92;
+    line-height: 0.94;
     font-weight: 400;
   }
 
   /* ─────────────────────────── Logo « ON VEUT VIVRE »
      Chaque mot est dimensionné pour occuper exactement la même largeur.
-     Les coefficients viennent des chasses réelles de Rubik Dirt :
-     taille = largeur_du_bloc / largeur_du_mot_à_1em.                        */
+     Coefficients = 1 ÷ chasse_du_mot_à_1em, mesurés sur la police des titres.
+     Si la police change, les recalculer — ne pas ajuster à l'œil.          */
   .lockup {
-    --l: 16rem;              /* largeur du bloc, surchargée à l'usage */
+    --l: 16rem;
     display: block;
     width: var(--l);
   }
@@ -82,18 +116,16 @@ body {
     letter-spacing: 0;
     white-space: nowrap;
   }
-  /* Les trois mots du haut : interligne constante, indépendante de leur taille */
-  .mot-canicules       { font-size: calc(var(--l) * 0.1971); line-height: calc(var(--l) * 0.158); }
-  .mot-incendies       { font-size: calc(var(--l) * 0.1956); line-height: calc(var(--l) * 0.158); }
-  .mot-empoisonnements { font-size: calc(var(--l) * 0.1026); line-height: calc(var(--l) * 0.158); }
-  .mot-on              { font-size: calc(var(--l) * 0.6748); line-height: 0.80; margin-top: 0.06em; }
-  .mot-veut            { font-size: calc(var(--l) * 0.3555); line-height: 0.84; }
+  .mot-canicules       { font-size: calc(var(--l) * 0.2537); line-height: calc(var(--l) * 0.196); }
+  .mot-incendies       { font-size: calc(var(--l) * 0.2464); line-height: calc(var(--l) * 0.196); }
+  .mot-empoisonnements { font-size: calc(var(--l) * 0.1281); line-height: calc(var(--l) * 0.196); }
+  .mot-on              { font-size: calc(var(--l) * 0.7440); line-height: 0.80; margin-top: 0.04em; }
+  .mot-veut            { font-size: calc(var(--l) * 0.4378); line-height: 0.84; }
 
-  /* La pastille : le mot VIVRE en réserve sur un aplat arrondi, légèrement incliné */
   .badge-vivre {
     display: block;
     width: var(--l);
-    font-size: calc(var(--l) * 0.2836);
+    font-size: calc(var(--l) * 0.3212);
     line-height: 0.80;
     padding: 0.17em 0 0.23em;
     border-radius: 0.22em;
@@ -102,12 +134,12 @@ body {
     margin-top: 0.10em;
   }
 
-  /* Le même motif, réutilisé comme surligneur dans les titres courants */
+  /* Le motif « pastille » du logo, réutilisé comme surligneur dans les titres */
   .pastille {
     display: inline-block;
-    background: #ee7d3a;
+    background: #ff751f;
     color: #fffcf5;
-    padding: 0.06em 0.28em 0.14em;
+    padding: 0.04em 0.26em 0.12em;
     border-radius: 0.22em;
     transform: rotate(-1.4deg);
   }
@@ -117,23 +149,15 @@ body {
 
   .bouton {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5
-           text-sm font-bold uppercase tracking-wide transition
+           text-sm font-semibold uppercase tracking-wide transition
            focus-visible:outline-offset-4;
   }
   .bouton-primaire {
-    @apply bouton bg-orange-fonce text-fond hover:bg-[#bd6127];
+    @apply bouton bg-orange-fonce text-fond hover:bg-[#8f3d0b];
   }
   .bouton-secondaire {
     @apply bouton border-2 border-encre/25 bg-transparent text-encre
            hover:border-orange-lien hover:text-orange-lien;
-  }
-  /* Variantes pour le bandeau d'appel, sur fond sombre */
-  .bouton-sombre {
-    @apply bouton bg-orange text-encre hover:bg-[#f79457];
-  }
-  .bouton-sombre-secondaire {
-    @apply bouton border-2 border-fond/25 bg-transparent text-fond
-           hover:border-orange hover:text-orange;
   }
 
   .carte {
@@ -148,5 +172,5 @@ body {
   .prose-oep p { @apply mb-4 leading-relaxed text-encre/85; }
   .prose-oep ul { @apply mb-4 list-disc space-y-2 pl-5 text-encre/85; }
   .prose-oep h3 { @apply titre mt-8 mb-3 text-xl text-orange-lien; }
-  .prose-oep strong { @apply text-encre; }
+  .prose-oep strong { @apply font-semibold text-encre; }
 }
