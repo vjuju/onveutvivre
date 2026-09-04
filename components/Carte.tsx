@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { mobilisations } from '@/content/mobilisations';
 import { liens } from '@/content/site';
+import BoutonAgenda from './BoutonAgenda';
 
 export default function Carte() {
   const [q, setQ] = useState('');
@@ -32,14 +33,25 @@ export default function Carte() {
           <span className="titre text-2xl text-orange-lien">{departements.size}</span> département
           {departements.size > 1 ? 's' : ''}.
         </p>
-        <a
-          href={liens.declarerMobilisation}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bouton-primaire shrink-0"
-        >
-          Déclarer ma mobilisation
-        </a>
+        <div className="flex shrink-0 flex-wrap gap-3">
+          <BoutonAgenda
+            evenement={{
+              titre: 'Marche du 26 septembre — On veut vivre',
+              lieu: 'Partout en France',
+              heure: '14h00',
+            }}
+          >
+            Ne pas la louper
+          </BoutonAgenda>
+          <a
+            href={liens.declarerMobilisation}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bouton-primaire"
+          >
+            Déclarer ma mobilisation
+          </a>
+        </div>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
@@ -89,16 +101,29 @@ export default function Carte() {
                 </h3>
                 <p className="mt-1 text-sm text-encre/80">{m.lieu}</p>
                 <p className="text-sm font-semibold text-orange-lien">{m.heure}</p>
-                {m.boucle && (
-                  <a
-                    href={m.boucle}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="lien-souligne mt-2 inline-block text-sm"
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <BoutonAgenda
+                    variante="discret"
+                    evenement={{
+                      titre: `Marche du 26 septembre — ${m.ville}`,
+                      lieu: `${m.lieu}, ${m.codePostal} ${m.ville}`,
+                      heure: m.heure,
+                    }}
+                    nomFichier={`marche-26-septembre-${m.ville.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.ics`}
                   >
-                    Boucle locale
-                  </a>
-                )}
+                    Ajouter à mon agenda
+                  </BoutonAgenda>
+                  {m.boucle && (
+                    <a
+                      href={m.boucle}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="lien-souligne text-sm"
+                    >
+                      Boucle locale
+                    </a>
+                  )}
+                </div>
               </article>
             ))}
           </div>

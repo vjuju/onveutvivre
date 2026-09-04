@@ -111,7 +111,7 @@ export const actions = [
     intro: 'Je partage autour de moi :',
     items: [
       { texte: "L'appel à signer", detail: 'onveutvivre.fr', href: liens.signer },
-      { texte: "L'affiche", detail: 'à partager et à imprimer', href: '/kits/' },
+      { texte: "L'affiche", detail: 'à partager et à enregistrer', href: '/kits/' },
       { texte: 'La carte des mobilisations', detail: '', href: '#carte' },
     ],
     accent: 'vert' as const,

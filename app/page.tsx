@@ -34,22 +34,22 @@ export default function Accueil() {
           aria-hidden
           className="pointer-events-none absolute -right-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-orange/15 blur-[120px]"
         />
-        <div className="relative mx-auto grid max-w-contenu gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+        <div className="relative mx-auto grid max-w-contenu gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
           {/* Colonne gauche */}
           <div>
-            <Marque largeur="clamp(15rem, 34vw, 22rem)" ton="clair" />
+            <Marque largeur="clamp(9.5rem, 20vw, 13rem)" ton="clair" />
 
-            <p className="mt-10 text-sm font-bold uppercase tracking-[0.18em] text-orange sm:text-base">
+            <p className="mt-7 text-sm font-bold uppercase tracking-[0.18em] text-orange">
               Appel à mobilisation nationale
               <span className="mx-2 text-fond/40">·</span>
               Samedi 26 septembre 2026
             </p>
 
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-fond/85 sm:text-xl">{chapo}</p>
+            <p className="mt-4 max-w-2xl leading-relaxed text-fond/85 sm:text-lg">{chapo}</p>
 
             <Appel />
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link href="#agir" className="bouton-sombre-secondaire">
                 Passer à l&apos;action
               </Link>
@@ -60,7 +60,7 @@ export default function Accueil() {
           </div>
 
           {/* Colonne droite */}
-          <div className="lg:pt-6">
+          <div>
             <div id="signer" className="scroll-mt-28">
               <Compteur />
             </div>

@@ -8,3 +8,9 @@ out/
 .vercel
 next-env.d.ts
 tsconfig.tsbuildinfo
+
+# Filet de sécurité : aucun fichier d'accès ne doit entrer dans ce dépôt public
+acces-*.pdf
+*secrets*
+*.token
+.env*
