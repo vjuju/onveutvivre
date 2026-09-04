@@ -21,17 +21,17 @@
 :root {
   --font-titre: 'Rubik Dirt';
   --font-corps: 'Rubik';
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6rem;
 }
 
 body {
-  background-color: #0c0a09;
-  color: #fffcf5;
+  background-color: #fffcf5;
+  color: #19120b;
   font-family: var(--font-corps), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -39,11 +39,11 @@ body {
 
 ::selection {
   background: #ee7d3a;
-  color: #0c0a09;
+  color: #19120b;
 }
 
 :focus-visible {
-  outline: 3px solid #ee7d3a;
+  outline: 3px solid #b0521c;
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -66,7 +66,43 @@ body {
     font-weight: 400;
   }
 
-  /* Le motif « pastille » du logo, réutilisé comme surligneur */
+  /* ─────────────────────────── Logo « ON VEUT VIVRE »
+     Chaque mot est dimensionné pour occuper exactement la même largeur.
+     Les coefficients viennent des chasses réelles de Rubik Dirt :
+     taille = largeur_du_bloc / largeur_du_mot_à_1em.                        */
+  .lockup {
+    --l: 16rem;              /* largeur du bloc, surchargée à l'usage */
+    display: block;
+    width: var(--l);
+  }
+  .lockup > span {
+    display: block;
+    font-family: var(--font-titre), Impact, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+  /* Les trois mots du haut : interligne constante, indépendante de leur taille */
+  .mot-canicules       { font-size: calc(var(--l) * 0.1971); line-height: calc(var(--l) * 0.158); }
+  .mot-incendies       { font-size: calc(var(--l) * 0.1956); line-height: calc(var(--l) * 0.158); }
+  .mot-empoisonnements { font-size: calc(var(--l) * 0.1026); line-height: calc(var(--l) * 0.158); }
+  .mot-on              { font-size: calc(var(--l) * 0.6748); line-height: 0.80; margin-top: 0.06em; }
+  .mot-veut            { font-size: calc(var(--l) * 0.3555); line-height: 0.84; }
+
+  /* La pastille : le mot VIVRE en réserve sur un aplat arrondi, légèrement incliné */
+  .badge-vivre {
+    display: block;
+    width: var(--l);
+    font-size: calc(var(--l) * 0.2836);
+    line-height: 0.80;
+    padding: 0.17em 0 0.23em;
+    border-radius: 0.22em;
+    text-align: center;
+    transform: rotate(-1.6deg);
+    margin-top: 0.10em;
+  }
+
+  /* Le même motif, réutilisé comme surligneur dans les titres courants */
   .pastille {
     display: inline-block;
     background: #ee7d3a;
@@ -75,8 +111,8 @@ body {
     border-radius: 0.22em;
     transform: rotate(-1.4deg);
   }
-  .pastille-vert { background: #6bc24a; }
-  .pastille-bleu { background: #4ba9f0; }
+  .pastille-vert  { background: #6bc24a; color: #19120b; }
+  .pastille-bleu  { background: #4ba9f0; color: #19120b; }
   .pastille-rouge { background: #ee3b3b; }
 
   .bouton {
@@ -85,26 +121,32 @@ body {
            focus-visible:outline-offset-4;
   }
   .bouton-primaire {
-    @apply bouton bg-orange text-noir hover:bg-[#f79457];
+    @apply bouton bg-orange-fonce text-fond hover:bg-[#bd6127];
   }
   .bouton-secondaire {
-    @apply bouton border-2 border-bordure bg-transparent text-creme
+    @apply bouton border-2 border-encre/25 bg-transparent text-encre
+           hover:border-orange-lien hover:text-orange-lien;
+  }
+  /* Variantes pour le bandeau d'appel, sur fond sombre */
+  .bouton-sombre {
+    @apply bouton bg-orange text-encre hover:bg-[#f79457];
+  }
+  .bouton-sombre-secondaire {
+    @apply bouton border-2 border-fond/25 bg-transparent text-fond
            hover:border-orange hover:text-orange;
   }
 
   .carte {
-    @apply rounded-2xl border border-bordure bg-ardoise p-6;
+    @apply rounded-2xl border border-trait bg-fond2 p-6;
   }
 
   .lien-souligne {
-    @apply text-orange underline decoration-orange/40 underline-offset-4
-           transition hover:decoration-orange;
+    @apply text-orange-lien underline decoration-orange-lien/40 underline-offset-4
+           transition hover:decoration-orange-lien;
   }
 
-  .prose-oep p { @apply mb-4 leading-relaxed text-creme/85; }
-  .prose-oep ul { @apply mb-4 list-disc space-y-2 pl-5 text-creme/85; }
-  .prose-oep h3 {
-    @apply titre mt-8 mb-3 text-xl text-orange;
-  }
-  .prose-oep strong { @apply text-creme; }
+  .prose-oep p { @apply mb-4 leading-relaxed text-encre/85; }
+  .prose-oep ul { @apply mb-4 list-disc space-y-2 pl-5 text-encre/85; }
+  .prose-oep h3 { @apply titre mt-8 mb-3 text-xl text-orange-lien; }
+  .prose-oep strong { @apply text-encre; }
 }

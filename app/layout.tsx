@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0C0A09',
+  themeColor: '#FFFCF5',
   width: 'device-width',
   initialScale: 1,
 };
@@ -43,15 +43,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" href="/fonts/rubik.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/rubik-dirt.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
-      <body className="min-h-screen bg-noir antialiased">
+      <body className="min-h-screen bg-fond antialiased">
         <a
           href="#contenu"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-orange focus:px-4 focus:py-2 focus:text-noir"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-orange focus:px-4 focus:py-2 focus:text-encre"
         >
           Aller au contenu
         </a>
         <Header />
-        <main id="contenu" className="pt-16 sm:pt-[4.5rem]">
+        <main id="contenu" className="pt-[4.5rem]">
           {children}
         </main>
         <Footer />

@@ -17,18 +17,18 @@ export default function Carrousel() {
 
   return (
     <div
-      className="carte relative overflow-hidden bg-charbon p-8 sm:p-12"
+      className="relative overflow-hidden rounded-2xl border border-trait bg-fond p-8 sm:p-12"
       onMouseEnter={() => setPause(true)}
       onMouseLeave={() => setPause(false)}
     >
-      <span className="titre pointer-events-none absolute -left-2 -top-8 select-none text-[9rem] leading-none text-orange/10">
+      <span className="titre pointer-events-none absolute -left-2 -top-8 select-none text-[9rem] leading-none text-orange/20">
         “
       </span>
 
       <blockquote aria-live="polite" className="relative min-h-[9rem]">
-        <p className="titre text-2xl leading-tight text-creme sm:text-3xl">{c.texte}</p>
-        <footer className="mt-5 text-sm text-cremeSourde">
-          <span className="font-semibold text-orange">{c.auteur}</span> · {c.source}
+        <p className="titre text-2xl leading-tight text-encre sm:text-3xl">{c.texte}</p>
+        <footer className="mt-5 text-sm text-encre2">
+          <span className="font-semibold text-orange-lien">{c.auteur}</span> · {c.source}
         </footer>
       </blockquote>
 
@@ -41,7 +41,7 @@ export default function Carrousel() {
             aria-label={`Citation ${n + 1} sur ${citations.length}`}
             aria-current={n === i}
             className={`h-2 rounded-full transition-all ${
-              n === i ? 'w-8 bg-orange' : 'w-2 bg-bordure hover:bg-cremeSourde'
+              n === i ? 'w-8 bg-orange-fonce' : 'w-2 bg-trait hover:bg-encre2'
             }`}
           />
         ))}

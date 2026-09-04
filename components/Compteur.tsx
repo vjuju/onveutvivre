@@ -6,14 +6,14 @@ export default function Compteur() {
   const pct = Math.min(100, Math.round((compteur.signataires / compteur.objectif) * 100));
 
   return (
-    <div className="carte bg-charbon p-6 sm:p-8">
-      <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange">
+    <div className="rounded-2xl border border-trait bg-fond p-6 shadow-xl shadow-black/10 sm:p-8">
+      <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-lien">
         Lettre ouverte au président de la République
       </p>
 
-      <p className="titre mt-5 text-5xl text-creme sm:text-6xl">{fmt.format(compteur.signataires)}</p>
-      <p className="mt-1 text-sm text-cremeSourde">
-        signataires · <span className="text-creme">{pct} %</span> de l&apos;objectif des{' '}
+      <p className="titre mt-5 text-5xl text-encre sm:text-6xl">{fmt.format(compteur.signataires)}</p>
+      <p className="mt-1 text-sm text-encre2">
+        signataires · <span className="font-semibold text-encre">{pct} %</span> de l&apos;objectif des{' '}
         {fmt.format(compteur.objectif)}
       </p>
 
@@ -42,7 +42,7 @@ export default function Compteur() {
         </a>
       </div>
 
-      <p className="mt-5 text-xs leading-relaxed text-cremeSourde">
+      <p className="mt-5 text-xs leading-relaxed text-encre2">
         Plus de {compteur.organisations} organisations nationales et locales soutiennent déjà
         l&apos;appel, et {compteur.volontaires} volontaires organisent les marches.
       </p>

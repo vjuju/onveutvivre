@@ -7,10 +7,7 @@ import { liens } from '@/content/site';
 export default function Carte() {
   const [q, setQ] = useState('');
 
-  const departements = useMemo(
-    () => new Set(mobilisations.map((m) => m.departement)),
-    []
-  );
+  const departements = useMemo(() => new Set(mobilisations.map((m) => m.departement)), []);
 
   const resultats = useMemo(() => {
     const terme = q.trim().toLowerCase();
@@ -29,10 +26,10 @@ export default function Carte() {
     <div>
       {/* Compteur + déclaration */}
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-lg text-creme">
-          <span className="titre text-2xl text-orange">{mobilisations.length}</span> mobilisation
+        <p className="text-lg text-encre">
+          <span className="titre text-2xl text-orange-lien">{mobilisations.length}</span> mobilisation
           {mobilisations.length > 1 ? 's' : ''} déclarée{mobilisations.length > 1 ? 's' : ''} dans{' '}
-          <span className="titre text-2xl text-orange">{departements.size}</span> département
+          <span className="titre text-2xl text-orange-lien">{departements.size}</span> département
           {departements.size > 1 ? 's' : ''}.
         </p>
         <a
@@ -47,8 +44,11 @@ export default function Carte() {
 
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
         {/* Colonne recherche */}
-        <div className="carte flex flex-col bg-charbon">
-          <label htmlFor="recherche-marche" className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-orange">
+        <div className="carte flex flex-col">
+          <label
+            htmlFor="recherche-marche"
+            className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-lien"
+          >
             Trouver ma marche
           </label>
           <input
@@ -57,12 +57,12 @@ export default function Carte() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Ville ou code postal"
-            className="w-full rounded-lg border border-bordure bg-champ px-4 py-3 text-creme placeholder:text-cremeSourde/70 focus:border-orange focus:outline-none"
+            className="w-full rounded-lg border border-trait bg-champ px-4 py-3 text-encre placeholder:text-encre2/80 focus:border-orange-lien focus:outline-none"
           />
 
           <div className="mt-5 max-h-[26rem] space-y-3 overflow-y-auto pr-1">
             {vide && (
-              <p className="text-sm leading-relaxed text-cremeSourde">
+              <p className="text-sm leading-relaxed text-encre2">
                 Le recensement des marches est en cours. Les points de rendez-vous s&apos;afficheront
                 ici au fur et à mesure des déclarations. En attendant, rejoignez la boucle Telegram
                 pour trouver ou lancer la marche près de chez vous.
@@ -70,7 +70,7 @@ export default function Carte() {
             )}
 
             {!vide && resultats.length === 0 && (
-              <p className="text-sm text-cremeSourde">
+              <p className="text-sm text-encre2">
                 Aucune marche trouvée pour « {q} ». Vous pouvez en lancer une :{' '}
                 <a href={liens.telegram} target="_blank" rel="noopener noreferrer" className="lien-souligne">
                   rejoignez le Telegram
@@ -80,14 +80,22 @@ export default function Carte() {
             )}
 
             {resultats.map((m) => (
-              <article key={`${m.codePostal}-${m.ville}-${m.lieu}`} className="rounded-lg border border-bordure bg-ardoise p-4">
-                <h3 className="titre text-lg text-creme">
-                  {m.ville} <span className="text-cremeSourde">({m.departement})</span>
+              <article
+                key={`${m.codePostal}-${m.ville}-${m.lieu}`}
+                className="rounded-lg border border-trait bg-fond p-4"
+              >
+                <h3 className="titre text-lg text-encre">
+                  {m.ville} <span className="text-encre2">({m.departement})</span>
                 </h3>
-                <p className="mt-1 text-sm text-creme/80">{m.lieu}</p>
-                <p className="text-sm text-orange">{m.heure}</p>
+                <p className="mt-1 text-sm text-encre/80">{m.lieu}</p>
+                <p className="text-sm font-semibold text-orange-lien">{m.heure}</p>
                 {m.boucle && (
-                  <a href={m.boucle} target="_blank" rel="noopener noreferrer" className="lien-souligne mt-2 inline-block text-sm">
+                  <a
+                    href={m.boucle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="lien-souligne mt-2 inline-block text-sm"
+                  >
                     Boucle locale
                   </a>
                 )}
@@ -103,10 +111,10 @@ export default function Carte() {
         </div>
 
         {/* Zone carte */}
-        <div className="carte relative flex min-h-[26rem] items-center justify-center overflow-hidden bg-charbon p-0">
+        <div className="relative flex min-h-[26rem] items-center justify-center overflow-hidden rounded-2xl border border-trait bg-fond2">
           <div
             aria-hidden
-            className="absolute inset-0 opacity-[0.07]"
+            className="absolute inset-0 opacity-[0.10]"
             style={{
               backgroundImage:
                 'linear-gradient(#EE7D3A 1px, transparent 1px), linear-gradient(90deg, #EE7D3A 1px, transparent 1px)',
@@ -114,8 +122,8 @@ export default function Carte() {
             }}
           />
           <div className="relative max-w-sm px-6 py-12 text-center">
-            <p className="titre text-3xl text-orange">Partout en France</p>
-            <p className="mt-4 text-sm leading-relaxed text-cremeSourde">
+            <p className="titre text-3xl text-encre">Partout en France</p>
+            <p className="mt-4 text-sm leading-relaxed text-encre2">
               Dans les métropoles et dans les bourgs de mille habitants, dans les centres-villes et
               dans les quartiers. La carte interactive des points de rendez-vous s&apos;affiche ici
               dès que le recensement est publié.

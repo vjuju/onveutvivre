@@ -20,12 +20,12 @@ export default function Signataires() {
             <TitreSection surtitre="Elles et ils ont signé">
               Les <span className="pastille">signataires</span>
             </TitreSection>
-            <p className="mt-6 max-w-2xl text-lg text-creme/80">
+            <p className="mt-6 max-w-2xl text-lg text-encre/80">
               {fmt.format(compteur.signataires)} personnes et plus de {compteur.organisations}{' '}
               organisations nationales et locales ont signé la lettre ouverte au président de la
               République.
             </p>
-            <p className="mt-4 max-w-2xl text-creme/70">
+            <p className="mt-4 max-w-2xl text-encre/70">
               Seules les signatures dont les auteur·es ont accepté la publication apparaissent ici.
             </p>
           </div>
@@ -33,10 +33,10 @@ export default function Signataires() {
         </div>
       </Section>
 
-      <Section fond="charbon">
-        <h2 className="titre text-3xl text-creme sm:text-4xl">Les organisations signataires</h2>
-        <div className="carte mt-8 bg-noir">
-          <p className="text-sm leading-relaxed text-creme/75">
+      <Section fond="beige">
+        <h2 className="titre text-3xl text-encre sm:text-4xl">Les organisations signataires</h2>
+        <div className="carte mt-8 bg-fond">
+          <p className="text-sm leading-relaxed text-encre/75">
             La liste complète des organisations signataires est en cours de consolidation et sera
             publiée ici. Associations, syndicats, collectifs, entreprises et collectivités : votre
             organisation peut rejoindre l&apos;appel.
@@ -53,8 +53,8 @@ export default function Signataires() {
       </Section>
 
       <Section>
-        <h2 className="titre text-3xl text-creme sm:text-4xl">Témoignages</h2>
-        <p className="mt-3 max-w-2xl text-sm text-cremeSourde">
+        <h2 className="titre text-3xl text-encre sm:text-4xl">Témoignages</h2>
+        <p className="mt-3 max-w-2xl text-sm text-encre2">
           Pourquoi marcher le 26 septembre ? Les témoignages des signataires qui ont accepté de
           partager leur engagement seront publiés ici.
         </p>

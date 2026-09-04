@@ -43,9 +43,9 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-bordure/70 bg-noir/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-contenu items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6">
-        <LogoLien taille="text-xl sm:text-2xl" />
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-trait bg-fond/95 backdrop-blur-md">
+      <div className="mx-auto flex h-[4.5rem] max-w-contenu items-center justify-between gap-4 px-4 sm:px-6">
+        <LogoLien largeur="3.6rem" />
 
         {/* Menu central — bureau */}
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navigation principale">
@@ -53,7 +53,7 @@ export default function Header() {
             <Link
               key={n.href}
               href={n.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-creme/80 transition hover:bg-ardoise hover:text-creme"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-encre/75 transition hover:bg-fond2 hover:text-encre"
             >
               {n.label}
             </Link>
@@ -65,21 +65,27 @@ export default function Header() {
               onClick={() => setOuvertMarche((v) => !v)}
               aria-expanded={ouvertMarche}
               aria-haspopup="true"
-              className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-creme/80 transition hover:bg-ardoise hover:text-creme"
+              className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-encre/75 transition hover:bg-fond2 hover:text-encre"
             >
               La marche du 26
-              <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden className={`transition ${ouvertMarche ? 'rotate-180' : ''}`}>
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                aria-hidden
+                className={`transition ${ouvertMarche ? 'rotate-180' : ''}`}
+              >
                 <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" />
               </svg>
             </button>
             {ouvertMarche && (
-              <div className="absolute left-0 top-full mt-2 w-64 overflow-hidden rounded-xl border border-bordure bg-charbon shadow-2xl shadow-black/60">
+              <div className="absolute left-0 top-full mt-2 w-64 overflow-hidden rounded-xl border border-trait bg-fond shadow-xl shadow-encre/10">
                 {sousMenuMarche.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
                     onClick={() => setOuvertMarche(false)}
-                    className="block px-4 py-3 text-sm text-creme/80 transition hover:bg-ardoise hover:text-orange"
+                    className="block px-4 py-3 text-sm text-encre/80 transition hover:bg-fond2 hover:text-orange-lien"
                   >
                     {s.label}
                   </Link>
@@ -90,14 +96,19 @@ export default function Header() {
 
           <Link
             href="/#calendrier"
-            className="rounded-lg px-3 py-2 text-sm font-medium text-creme/80 transition hover:bg-ardoise hover:text-creme"
+            className="rounded-lg px-3 py-2 text-sm font-medium text-encre/75 transition hover:bg-fond2 hover:text-encre"
           >
             Actualités
           </Link>
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={liens.signer} target="_blank" rel="noopener noreferrer" className="bouton-primaire hidden !px-5 !py-2.5 !text-xs sm:inline-flex">
+          <a
+            href={liens.signer}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bouton-primaire hidden !px-5 !py-2.5 !text-xs sm:inline-flex"
+          >
             Signer l&apos;appel
           </a>
           <button
@@ -105,7 +116,7 @@ export default function Header() {
             onClick={() => setOuvertMobile((v) => !v)}
             aria-expanded={ouvertMobile}
             aria-label="Ouvrir le menu"
-            className="rounded-lg border border-bordure p-2.5 text-creme lg:hidden"
+            className="rounded-lg border border-encre/20 p-2.5 text-encre lg:hidden"
           >
             <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden>
               {ouvertMobile ? (
@@ -120,24 +131,24 @@ export default function Header() {
 
       {/* Menu mobile */}
       {ouvertMobile && (
-        <nav className="border-t border-bordure bg-charbon px-4 pb-6 pt-2 lg:hidden" aria-label="Navigation mobile">
+        <nav className="border-t border-trait bg-fond2 px-4 pb-6 pt-2 lg:hidden" aria-label="Navigation mobile">
           {[...navigation, { label: 'Actualités', href: '/#calendrier' }].map((n) => (
             <Link
               key={n.href}
               href={n.href}
               onClick={() => setOuvertMobile(false)}
-              className="block border-b border-bordure/60 py-3 text-creme/85"
+              className="block border-b border-trait py-3 text-encre/85"
             >
               {n.label}
             </Link>
           ))}
-          <p className="pt-4 text-xs uppercase tracking-widest text-cremeSourde">La marche du 26</p>
+          <p className="pt-4 text-xs uppercase tracking-widest text-encre2">La marche du 26</p>
           {sousMenuMarche.map((s) => (
             <Link
               key={s.href}
               href={s.href}
               onClick={() => setOuvertMobile(false)}
-              className="block border-b border-bordure/60 py-3 pl-3 text-creme/85"
+              className="block border-b border-trait py-3 pl-3 text-encre/85"
             >
               {s.label}
             </Link>
