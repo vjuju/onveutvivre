@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Rubik Dirt';
+  src: url('/fonts/rubik-dirt.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/rubik.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-titre: 'Rubik Dirt';
+  --font-corps: 'Rubik';
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: #0c0a09;
+  color: #fffcf5;
+  font-family: var(--font-corps), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #ee7d3a;
+  color: #0c0a09;
+}
+
+:focus-visible {
+  outline: 3px solid #ee7d3a;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  /* Titres de la charte : Rubik Dirt, capitales, interlettrage serré */
+  .titre {
+    font-family: var(--font-titre), Impact, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    line-height: 0.92;
+    font-weight: 400;
+  }
+
+  /* Le motif « pastille » du logo, réutilisé comme surligneur */
+  .pastille {
+    display: inline-block;
+    background: #ee7d3a;
+    color: #fffcf5;
+    padding: 0.06em 0.28em 0.14em;
+    border-radius: 0.22em;
+    transform: rotate(-1.4deg);
+  }
+  .pastille-vert { background: #6bc24a; }
+  .pastille-bleu { background: #4ba9f0; }
+  .pastille-rouge { background: #ee3b3b; }
+
+  .bouton {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5
+           text-sm font-bold uppercase tracking-wide transition
+           focus-visible:outline-offset-4;
+  }
+  .bouton-primaire {
+    @apply bouton bg-orange text-noir hover:bg-[#f79457];
+  }
+  .bouton-secondaire {
+    @apply bouton border-2 border-bordure bg-transparent text-creme
+           hover:border-orange hover:text-orange;
+  }
+
+  .carte {
+    @apply rounded-2xl border border-bordure bg-ardoise p-6;
+  }
+
+  .lien-souligne {
+    @apply text-orange underline decoration-orange/40 underline-offset-4
+           transition hover:decoration-orange;
+  }
+
+  .prose-oep p { @apply mb-4 leading-relaxed text-creme/85; }
+  .prose-oep ul { @apply mb-4 list-disc space-y-2 pl-5 text-creme/85; }
+  .prose-oep h3 {
+    @apply titre mt-8 mb-3 text-xl text-orange;
+  }
+  .prose-oep strong { @apply text-creme; }
+}
