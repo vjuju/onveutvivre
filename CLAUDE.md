@@ -100,8 +100,15 @@ Deux variantes, dans `components/Logo.tsx` :
 ## Points d'attention
 
 - `public/_redirects` ne fait **pas** de correspondance sur le nom d'hôte chez
-  Cloudflare Pages. La redirection `www` → apex se fait par un **Single Redirect**
-  dans la zone Cloudflare, pas dans ce fichier.
+  Cloudflare Pages : une ligne `https://www.…/*` y est acceptée sans erreur et ne
+  s'applique jamais. Ce fichier ne sert qu'aux redirections de **chemin**.
+- La redirection `www` → apex est une **Page Rule** Cloudflare
+  (`www.onveutvivre.fr/*` → 301 `https://onveutvivre.fr/$1`), et non un Single
+  Redirect. Raison : le phase ruleset `http_request_dynamic_redirect` exige la
+  permission de token « Zone · Dynamic Redirect », distincte de « Zone · Config
+  Rules » ; les Page Rules passent avec les permissions déjà en place et rendent
+  le même service. À reprendre en Single Redirect le jour où la permission est
+  ajoutée — les Page Rules sont une fonctionnalité en fin de vie chez Cloudflare.
 - Les pages `mentions-legales` et `confidentialite` contiennent des encadrés
   « à compléter » : identité juridique de la structure éditrice et responsable de
   traitement. À renseigner avant toute communication large.
