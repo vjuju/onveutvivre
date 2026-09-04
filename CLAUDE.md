@@ -82,13 +82,13 @@ jamais avec du texte orange — c'est le procédé de la marque elle-même.
 
 ### Typographies
 
-- **Titres : Gagalin** dans la charte. Gagalin est *free for personal use* :
-  l'usage par une organisation exige une **licence commerciale Fontfabric**.
-  Tant qu'elle n'est pas achetée, `public/fonts/titres.woff2` contient
-  **Lilita One** (SIL OFL), le substitut libre le plus proche.
-  Pour basculer : déposer le woff2 de Gagalin sous ce même nom, puis
+- **Titres : Rubik Dirt** (SIL OFL), dans `public/fonts/titres.woff2`.
+  La charte mentionne **Gagalin**, mais Gagalin est *free for personal use* :
+  son usage par une organisation exige une **licence commerciale Fontfabric**.
+  Le jour où elle est achetée, déposer son woff2 sous ce même nom, puis
   **recalculer les coefficients `.mot-*`** de `globals.css` à partir des chasses
-  réelles de la police (`taille = largeur_du_bloc ÷ chasse_du_mot_à_1em`).
+  réelles de la police (`taille = largeur_du_bloc ÷ chasse_du_mot_à_1em`) —
+  ceux en place sont propres à Rubik Dirt.
 - **Texte : Poppins** (SIL OFL), en 400/500/600/700.
 
 Les deux sont **auto-hébergées** dans `public/fonts` : aucun appel à Google

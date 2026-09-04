@@ -3,18 +3,19 @@
 @tailwind utilities;
 
 /* ─────────────────────────────────────────────────────────── Typographies
-   Titres — la charte demande **Gagalin**. Gagalin est « free for personal use »
-   uniquement : tout usage par une organisation exige une licence commerciale
-   auprès de Fontfabric. En attendant qu'elle soit achetée, `titres.woff2`
-   contient **Lilita One** (SIL Open Font License), le substitut libre le plus
-   proche : même graisse, mêmes terminaisons arrondies, même esprit d'affiche.
+   Titres — **Rubik Dirt** (SIL Open Font License), la police d'affiche abîmée
+   retenue pour le logo et les titres.
 
-   Pour basculer sur Gagalin le jour où la licence est acquise : déposer le
-   woff2 sous `public/fonts/titres.woff2` et recalculer les coefficients
-   `.mot-*` ci-dessous à partir des chasses réelles de la police.
+   La charte mentionne Gagalin, mais Gagalin est « free for personal use » :
+   son usage par une organisation exige une licence commerciale Fontfabric.
+   Le jour où elle est achetée, déposer son woff2 sous `public/fonts/titres.woff2`
+   et **recalculer les coefficients `.mot-*`** ci-dessous à partir des chasses
+   réelles de la police — ils sont propres à Rubik Dirt.
 
-   Texte — Poppins (SIL OFL), auto-hébergée comme le reste : aucun appel à
-   Google Fonts, donc aucune IP de visiteur envoyée à un tiers.            */
+   Texte — Poppins (SIL OFL).
+
+   Les deux sont auto-hébergées : aucun appel à Google Fonts, donc aucune IP de
+   visiteur envoyée à un tiers.                                            */
 
 @font-face {
   font-family: 'Titres';
@@ -96,7 +97,7 @@ body {
     font-family: var(--font-titre), Impact, sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.005em;
-    line-height: 0.94;
+    line-height: 0.92;
     font-weight: 400;
   }
 
@@ -116,16 +117,16 @@ body {
     letter-spacing: 0;
     white-space: nowrap;
   }
-  .mot-canicules       { font-size: calc(var(--l) * 0.2537); line-height: calc(var(--l) * 0.196); }
-  .mot-incendies       { font-size: calc(var(--l) * 0.2464); line-height: calc(var(--l) * 0.196); }
-  .mot-empoisonnements { font-size: calc(var(--l) * 0.1281); line-height: calc(var(--l) * 0.196); }
-  .mot-on              { font-size: calc(var(--l) * 0.7440); line-height: 0.80; margin-top: 0.04em; }
-  .mot-veut            { font-size: calc(var(--l) * 0.4378); line-height: 0.84; }
+  .mot-canicules       { font-size: calc(var(--l) * 0.1971); line-height: calc(var(--l) * 0.158); }
+  .mot-incendies       { font-size: calc(var(--l) * 0.1956); line-height: calc(var(--l) * 0.158); }
+  .mot-empoisonnements { font-size: calc(var(--l) * 0.1026); line-height: calc(var(--l) * 0.158); }
+  .mot-on              { font-size: calc(var(--l) * 0.6748); line-height: 0.80; margin-top: 0.06em; }
+  .mot-veut            { font-size: calc(var(--l) * 0.3555); line-height: 0.84; }
 
   .badge-vivre {
     display: block;
     width: var(--l);
-    font-size: calc(var(--l) * 0.3212);
+    font-size: calc(var(--l) * 0.2836);
     line-height: 0.80;
     padding: 0.17em 0 0.23em;
     border-radius: 0.22em;
