@@ -6,7 +6,7 @@ export default function Compteur() {
   const pct = Math.min(100, Math.round((compteur.signataires / compteur.objectif) * 100));
 
   return (
-    <div className="rounded-2xl border border-trait bg-fond p-6 shadow-xl shadow-black/10 sm:p-8">
+    <div className="rounded-2xl border border-trait bg-fond p-6 shadow-lg shadow-encre/[0.06] sm:p-8">
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-lien">
         Lettre ouverte au président de la République
       </p>

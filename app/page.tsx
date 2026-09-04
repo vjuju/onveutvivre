@@ -27,42 +27,44 @@ const teintes = {
 export default function Accueil() {
   return (
     <>
-      {/* ─────────────────────────────── Bandeau 1 · Signer l'appel
-          Seul bandeau sur fond sombre (#19120B), comme prévu au brief. */}
-      <section id="appel" className="relative overflow-hidden bg-encre">
+      {/* ─────────────────────────────── Bandeau 1 · Signer l'appel */}
+      <section id="appel" className="relative overflow-hidden bg-fond2">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-orange/15 blur-[120px]"
+          className="pointer-events-none absolute -right-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-orange/20 blur-[130px]"
         />
-        <div className="relative mx-auto grid max-w-contenu gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-          {/* Colonne gauche */}
-          <div>
-            <Marque largeur="clamp(9.5rem, 20vw, 13rem)" ton="clair" />
+        <div className="relative mx-auto max-w-contenu px-4 py-10 sm:px-6 sm:py-14">
+          {/* Ligne 1 — le lockup et le bandeau de signature : deux colonnes de
+              même hauteur, chacun centré dans la sienne. */}
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div className="flex justify-center">
+              <Marque largeur="clamp(10rem, 22vw, 15rem)" />
+            </div>
 
-            <p className="mt-7 text-sm font-bold uppercase tracking-[0.18em] text-orange">
-              Appel à mobilisation nationale
-              <span className="mx-2 text-fond/40">·</span>
-              Samedi 26 septembre 2026
-            </p>
-
-            <p className="mt-4 max-w-2xl leading-relaxed text-fond/85 sm:text-lg">{chapo}</p>
-
-            <Appel />
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="#agir" className="bouton-sombre-secondaire">
-                Passer à l&apos;action
-              </Link>
-              <Link href="#carte" className="bouton-sombre-secondaire">
-                Trouver ma marche
-              </Link>
+            <div id="signer" className="scroll-mt-28 mx-auto w-full max-w-md">
+              <Compteur />
             </div>
           </div>
 
-          {/* Colonne droite */}
-          <div>
-            <div id="signer" className="scroll-mt-28">
-              <Compteur />
+          {/* Ligne 2 — l'appel, la description et les boutons, en bloc centré. */}
+          <div className="mx-auto mt-12 max-w-3xl text-center sm:mt-14">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-lien">
+              Appel à mobilisation nationale
+              <span className="mx-2 text-encre2">·</span>
+              Samedi 26 septembre 2026
+            </p>
+
+            <p className="mt-4 leading-relaxed text-encre/80 sm:text-lg">{chapo}</p>
+
+            <Appel />
+
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link href="#agir" className="bouton-secondaire">
+                Passer à l&apos;action
+              </Link>
+              <Link href="#carte" className="bouton-secondaire">
+                Trouver ma marche
+              </Link>
             </div>
           </div>
         </div>
