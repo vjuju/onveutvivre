@@ -46,7 +46,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Colonne 1 */}
           <div>
-            <Marque largeur="6rem" variante="compact" className="mb-5" />
+            <Marque variante="horizontal" largeur="11rem" className="mb-5" />
             <p className="titre mb-3 text-lg text-encre">
               Marchons le samedi
               <br />

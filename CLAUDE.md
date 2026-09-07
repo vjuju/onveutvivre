@@ -68,14 +68,19 @@ presque jamais avoir à toucher aux composants pour une mise à jour de texte.
 | `encre` | `#19120B` | textes |
 | `encre2` | `#6E6154` | textes secondaires |
 | `trait` | `#E6DCC9` | filets, bordures |
-| `orange` | `#FF751F` | **aplats uniquement** — pastilles, logo |
-| `orange-fonce` | `#BB5210` | fond des boutons (texte crème, 4,8:1) |
+| `orange` | `#FF751F` | **aplats** — pastilles, logo, **fond des boutons** |
+| `orange-fonce` | `#E35F0D` | survol des boutons |
 | `orange-lien` | `#A8480F` | liens et petits textes (5,7:1 sur le crème) |
 
-L'orange de la charte ne monte qu'à **2,4:1** sur le crème : il est illisible en
-texte. D'où la règle : `orange` en aplat, et deux dérivés assombris pour tout ce
-qui est lu. Même logique pour les accents vert / bleu / rouge, qui ont chacun une
-variante `-texte`.
+Toutes ces valeurs sont **relevées au pixel sur les fichiers du logo**.
+
+L'orange ne monte qu'à **2,4:1** en texte sur le crème : il est illisible ainsi.
+Les boutons l'utilisent donc en **aplat, avec du texte encre** — 6,9:1, très
+au-dessus du minimum ; du texte crème dessus tomberait à 2,6:1. Pour les liens
+et les petits textes accentués, `orange-lien` prend le relais.
+
+Accents du logo : vert `#7ED957`, rouge `#FF3131`, bleu `#38B6FF` — en aplat
+seulement, chacun avec sa variante `-texte` assombrie.
 
 Un titre « accentué » se fait avec la **pastille** (aplat orange + texte crème),
 jamais avec du texte orange — c'est le procédé de la marque elle-même.
@@ -96,12 +101,26 @@ Fonts, donc aucune IP de visiteur envoyée à un tiers.
 
 ### Le logo
 
-Règle de construction : **chaque mot occupe exactement la même largeur**. C'est
-la taille du mot qui varie selon son nombre de lettres, jamais sa proportion —
-on ne déforme jamais horizontalement. Coefficients dans `globals.css` (`.mot-*`).
+Ce sont les **fichiers officiels** fournis par l'équipe, dans `public/logos/`.
+Le logo n'est plus reconstruit en CSS : `components/Logo.tsx` affiche l'image.
 
-Deux variantes dans `components/Logo.tsx` : `complet` (six lignes) et `compact`
-(ON / VEUT / [VIVRE], pour l'entête et le pied-de-page).
+Chaque logo existe en deux tailles : `<nom>-web.png` (760 px de côté max,
+affiché sur le site) et `<nom>.png` (1600 px, proposé au téléchargement sur
+`/kits`). Tous ont un **fond transparent** — le blanc d'origine a été détouré
+depuis les bords, ce qui préserve la réserve blanche du mot VIVRE.
+
+Quatre variantes exposées par le composant :
+
+| `variante` | Fichier | Usage |
+|---|---|---|
+| `complet` | `ovv-complet-couleur` | bandeau d'appel |
+| `principal` | `ovv-orange` | usage courant |
+| `horizontal` | `ovv-horizontal` | entête, pied-de-page |
+| `vivre` | `ovv-vivre` | pastille seule, favicon |
+
+Ne jamais déformer ni recolorier le logo : utiliser la variante prévue pour le
+fond. Les déclinaisons rouge, verte, bleue et monochrome sont dans le même
+dossier.
 
 ### Accentuations dans les textes
 

@@ -14,18 +14,19 @@ const config: Config = {
         trait: '#E6DCC9',       // filets et bordures
 
         orange: {
-          // L'orange pétant de la charte : réservé aux APLATS (pastilles, logo,
-          // bandeaux). Sur fond crème il ne monte qu'à 2,4:1 — jamais en texte.
+          // L'orange du logo, relevé au pixel sur les fichiers officiels.
+          // Fond des boutons et des aplats — avec du texte ENCRE dessus (6,9:1).
+          // En texte sur le crème il ne monte qu'à 2,4:1 : jamais en texte.
           DEFAULT: '#FF751F',
-          // Assombri jusqu'à 4,8:1 avec du texte crème dessus : fond des boutons.
-          fonce: '#BB5210',
+          // Survol des boutons.
+          fonce: '#E35F0D',
           // Assombri jusqu'à 5,7:1 sur le crème : liens et petits textes accentués.
           lien: '#A8480F',
         },
-        // Accents : version vive pour les aplats, version sourde pour le texte
-        vert: { DEFAULT: '#6BC24A', texte: '#3E8E28' },
-        bleu: { DEFAULT: '#4BA9F0', texte: '#1668B0' },
-        rouge: { DEFAULT: '#EE3B3B', texte: '#C81E1E' },
+        // Accents du logo : version vive pour les aplats, sourde pour le texte
+        vert: { DEFAULT: '#7ED957', texte: '#3E8E28' },
+        bleu: { DEFAULT: '#38B6FF', texte: '#1668B0' },
+        rouge: { DEFAULT: '#FF3131', texte: '#C81E1E' },
       },
       fontFamily: {
         titre: ['var(--font-titre)', 'Impact', 'sans-serif'],

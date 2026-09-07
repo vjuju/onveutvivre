@@ -144,17 +144,19 @@ body {
     border-radius: 0.22em;
     transform: rotate(-1.4deg);
   }
-  .pastille-vert  { background: #6bc24a; color: #19120b; }
-  .pastille-bleu  { background: #4ba9f0; color: #19120b; }
-  .pastille-rouge { background: #ee3b3b; }
+  .pastille-vert  { background: #7ed957; color: #19120b; }
+  .pastille-bleu  { background: #38b6ff; color: #19120b; }
+  .pastille-rouge { background: #ff3131; }
 
   .bouton {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5
            text-sm font-semibold uppercase tracking-wide transition
            focus-visible:outline-offset-4;
   }
+  /* L'orange du logo en aplat, avec du texte encre : 6,9:1, très au-dessus
+     du minimum. Du texte crème dessus tomberait à 2,6:1 — illisible. */
   .bouton-primaire {
-    @apply bouton bg-orange-fonce text-fond hover:bg-[#8f3d0b];
+    @apply bouton bg-orange text-encre hover:bg-orange-fonce;
   }
   .bouton-secondaire {
     @apply bouton border-2 border-encre/25 bg-transparent text-encre

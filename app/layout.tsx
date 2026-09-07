@@ -18,15 +18,21 @@ export const metadata: Metadata = {
     siteName: site.nom,
     locale: 'fr_FR',
     type: 'website',
-    images: ['/logos/logo-empile-couleur.png'],
+    images: ['/logos/ovv-complet-couleur.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'On veut vivre — Marche nationale du 26 septembre 2026',
     description: site.description,
-    images: ['/logos/logo-empile-couleur.png'],
+    images: ['/logos/ovv-complet-couleur.png'],
   },
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icone-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: '/icone-180.png',
+  },
   robots: { index: true, follow: true },
 };
 

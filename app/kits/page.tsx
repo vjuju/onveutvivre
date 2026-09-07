@@ -9,25 +9,42 @@ export const metadata: Metadata = {
 };
 
 const logos = [
-  { nom: 'Empilé — couleur, sur fond clair', fichier: '/logos/logo-empile-couleur.png', fond: 'bg-fond' },
-  { nom: 'Empilé — encre, sur fond clair', fichier: '/logos/logo-empile-encre.png', fond: 'bg-fond' },
-  { nom: 'Empilé — orange, sur fond sombre', fichier: '/logos/logo-empile-orange.png', fond: 'bg-encre' },
-  { nom: 'Compact — encre, sur fond clair', fichier: '/logos/logo-compact-encre.png', fond: 'bg-fond' },
-  { nom: 'Compact — orange, sur fond sombre', fichier: '/logos/logo-compact-orange.png', fond: 'bg-encre' },
-  { nom: 'Compact — crème, sur fond sombre', fichier: '/logos/logo-compact-creme.png', fond: 'bg-encre' },
+  {
+    nom: 'Bloc complet — couleur',
+    detail: 'La version de référence, sur fond clair',
+    fichier: 'ovv-complet-couleur',
+    fond: 'bg-fond',
+  },
+  {
+    nom: 'Bloc complet — noir et gris',
+    detail: 'Impression monochrome, photocopie',
+    fichier: 'ovv-complet-noir',
+    fond: 'bg-fond',
+  },
+  { nom: 'On veut vivre — orange', detail: 'Version courante', fichier: 'ovv-orange', fond: 'bg-fond' },
+  { nom: 'On veut vivre — noir', detail: 'Monochrome', fichier: 'ovv-noir', fond: 'bg-fond' },
+  { nom: 'Pastille rouge', detail: 'Variante d’accent', fichier: 'ovv-rouge', fond: 'bg-fond' },
+  { nom: 'Pastille verte', detail: 'Variante d’accent', fichier: 'ovv-vert', fond: 'bg-fond' },
+  { nom: 'Pastille bleue', detail: 'Variante d’accent', fichier: 'ovv-bleu', fond: 'bg-fond' },
+  {
+    nom: 'Version horizontale',
+    detail: 'Bandeaux, entêtes, signatures de mail',
+    fichier: 'ovv-horizontal',
+    fond: 'bg-fond',
+  },
+  { nom: 'Pastille « VIVRE »', detail: 'Avatar, favicon, tampon', fichier: 'ovv-vivre', fond: 'bg-fond' },
 ];
 
 const charte = [
-  { hex: '#FF751F', usage: 'Orange — aplats, pastilles, logo' },
-  { hex: '#BB5210', usage: 'Orange foncé — boutons' },
+  { hex: '#FF751F', usage: 'Orange du logo — aplats, pastilles, boutons' },
   { hex: '#A8480F', usage: 'Orange sourd — liens et petits textes' },
   { hex: '#FFFCF5', usage: 'Crème — fond général' },
   { hex: '#FAF4E9', usage: 'Beige — cartes et blocs' },
   { hex: '#F0E8D6', usage: 'Sable — champs de formulaire' },
   { hex: '#19120B', usage: 'Encre — textes' },
-  { hex: '#6BC24A', usage: 'Vert — accent' },
-  { hex: '#4BA9F0', usage: 'Bleu — accent' },
-  { hex: '#EE3B3B', usage: 'Rouge — accent' },
+  { hex: '#7ED957', usage: 'Vert — accent' },
+  { hex: '#FF3131', usage: 'Rouge — accent' },
+  { hex: '#38B6FF', usage: 'Bleu — accent' },
 ];
 
 export default function Kits() {
@@ -88,26 +105,36 @@ export default function Kits() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {logos.map((l) => (
             <div key={l.fichier} className="carte">
-              <div className={`mb-4 flex h-32 items-center justify-center rounded-lg p-5 ${l.fond}`}>
+              <div className={`mb-4 flex h-40 items-center justify-center rounded-lg p-5 ${l.fond}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={l.fichier} alt={l.nom} className="max-h-full max-w-full object-contain" />
+                <img
+                  src={`/logos/${l.fichier}-web.png`}
+                  alt={l.nom}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-h-full max-w-full object-contain"
+                />
               </div>
               <p className="text-sm font-medium text-encre">{l.nom}</p>
-              <a href={l.fichier} download className="lien-souligne mt-2 inline-block text-sm">
+              <p className="mt-0.5 text-xs text-encre2">{l.detail}</p>
+              <a
+                href={`/logos/${l.fichier}.png`}
+                download
+                className="lien-souligne mt-2 inline-block text-sm"
+              >
                 Télécharger le PNG
               </a>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href="/logos/logo-onveutvivre.svg" download className="bouton-secondaire">
-            Logo compact — SVG vectoriel
-          </a>
-          <a href="/logos/logo-onveutvivre-empile.svg" download className="bouton-secondaire">
-            Logo empilé — SVG vectoriel
-          </a>
-        </div>
+        <p className="mt-8 text-sm text-encre2">
+          PNG à fond transparent, prêts à poser sur n&apos;importe quel fond.{' '}
+          <strong className="font-semibold text-encre">
+            Ne pas déformer ni recolorier le logo
+          </strong>{' '}
+          : utiliser la variante prévue pour le fond.
+        </p>
       </Section>
 
       {/* ── 3. Charte, en dernier ── */}
@@ -115,7 +142,8 @@ export default function Kits() {
         <h2 className="titre text-3xl text-encre sm:text-4xl">Charte graphique</h2>
         <p className="mt-3 max-w-2xl text-sm text-encre2">
           Typographie des titres : <strong className="text-encre">Gagalin</strong>. Typographie de
-          texte : <strong className="text-encre">Poppins</strong>.
+          texte : <strong className="text-encre">Poppins</strong>. Les couleurs sont relevées
+          directement sur les fichiers du logo.
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
