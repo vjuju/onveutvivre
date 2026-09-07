@@ -22,7 +22,7 @@ export default function Accueil() {
               même hauteur, chacun centré dans la sienne. */}
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <div className="flex justify-center">
-              <Marque variante="complet" largeur="clamp(8.5rem, 18vw, 11.5rem)" priorite />
+              <Marque variante="complet" largeur="clamp(11rem, 24vw, 15rem)" priorite />
             </div>
 
             <div className="mx-auto w-full max-w-md">
