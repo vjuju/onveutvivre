@@ -11,11 +11,17 @@
    Texte — Poppins (SIL OFL).
 
    Les deux sont auto-hébergées : aucun appel à Google Fonts, donc aucune IP de
-   visiteur envoyée à un tiers.                                            */
+   visiteur envoyée à un tiers.
+
+   ⚠️ `public/_headers` sert /fonts/* en `immutable, max-age=1 an`. Un fichier
+   de police qui change **doit donc changer de nom**, sinon les navigateurs qui
+   ont déjà l'ancienne version ne la rechargeront jamais — c'est arrivé au
+   premier changement de police des titres. Le nom porte la police (ou un
+   suffixe `.vN`) : le renommer suffit à casser le cache.               */
 
 @font-face {
   font-family: 'Titres';
-  src: url('/fonts/titres.woff2') format('woff2');
+  src: url('/fonts/titres-rubik-mono-one.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -23,28 +29,28 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/poppins-400.woff2') format('woff2');
+  src: url('/fonts/poppins-400.v1.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/poppins-500.woff2') format('woff2');
+  src: url('/fonts/poppins-500.v1.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/poppins-600.woff2') format('woff2');
+  src: url('/fonts/poppins-600.v1.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/poppins-700.woff2') format('woff2');
+  src: url('/fonts/poppins-700.v1.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

@@ -96,9 +96,17 @@ jamais avec du texte orange — c'est le procédé de la marque elle-même.
   du pied-de-page).
 - **Texte : Poppins** (SIL OFL), en 400/500/600/700.
 
-Pour changer la police des titres : déposer le woff2 sous `public/fonts/titres.woff2`
-et reprendre les tailles. Rien d'autre à toucher — le logo est une image, il ne
-dépend plus de la police.
+**Changer une police : renommer le fichier.** `public/_headers` sert `/fonts/*`
+en `immutable, max-age=1 an`. Un fichier de police qui change sans changer de
+nom ne sera **jamais** rechargé par les navigateurs qui ont déjà l'ancienne
+version — c'est exactement ce qui s'est passé au premier changement de police
+des titres : le serveur envoyait bien la nouvelle, les navigateurs affichaient
+l'ancienne. Le nom porte donc la police (`titres-rubik-mono-one.woff2`) ou un
+suffixe de version (`poppins-400.v1.woff2`). Déposer le nouveau woff2 sous un
+nouveau nom, mettre à jour `globals.css` et le `<link rel="preload">` de
+`layout.tsx`, puis reprendre les tailles.
+
+Rien d'autre à toucher — le logo est une image, il ne dépend plus de la police.
 
 Les deux sont **auto-hébergées** dans `public/fonts` : aucun appel à Google
 Fonts, donc aucune IP de visiteur envoyée à un tiers.
