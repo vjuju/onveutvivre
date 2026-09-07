@@ -34,7 +34,7 @@ export default function PageAgir() {
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {actions.map((a) => (
             <article key={a.titre} className={`carte border-t-4 ${teintes[a.accent].bord}`}>
-              <h2 className={`titre text-2xl ${teintes[a.accent].texte}`}>{a.titre}</h2>
+              <h2 className={`titre text-lg ${teintes[a.accent].texte}`}>{a.titre}</h2>
               <p className="mt-4 text-sm text-encre/80">{a.intro}</p>
               <ul className="mt-4 space-y-2.5">
                 {a.items.map((i) => (
@@ -58,11 +58,11 @@ export default function PageAgir() {
 
       <Section fond="beige">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-          <h2 className="titre text-3xl text-encre sm:text-4xl">Vous voulez en faire plus ?</h2>
+          <h2 className="titre text-2xl text-encre sm:text-3xl">Vous voulez en faire plus ?</h2>
           <div className="grid gap-8 sm:grid-cols-2">
             {enFairePlus.map((b) => (
               <div key={b.titre}>
-                <h3 className="titre text-xl text-orange-lien">{b.titre}</h3>
+                <h3 className="titre text-base text-orange-lien">{b.titre}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-encre/80">
                   <Accentue>{b.texte}</Accentue>
                 </p>
@@ -104,7 +104,7 @@ export default function PageAgir() {
               <p className="text-2xl" aria-hidden>
                 {b.emoji}
               </p>
-              <h3 className="titre mt-3 text-xl text-orange-lien">{b.titre}</h3>
+              <h3 className="titre mt-3 text-base text-orange-lien">{b.titre}</h3>
               <p className="mt-3 text-sm leading-relaxed text-encre/75">
                 <Accentue>{b.texte}</Accentue>
               </p>

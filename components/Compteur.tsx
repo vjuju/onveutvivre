@@ -20,7 +20,7 @@ export default function Compteur({
         Samedi 26 septembre 2026
       </p>
 
-      <p className="titre mt-5 text-5xl text-encre sm:text-6xl">{fmt.format(chiffres.signataires)}</p>
+      <p className="titre mt-5 text-4xl text-encre sm:text-5xl">{fmt.format(chiffres.signataires)}</p>
       <p className="mt-1 text-sm text-encre2">
         signataires · <span className="font-semibold text-encre">{pct} %</span> de l&apos;objectif des{' '}
         {fmt.format(chiffres.objectif)}

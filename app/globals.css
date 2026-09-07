@@ -3,14 +3,10 @@
 @tailwind utilities;
 
 /* ─────────────────────────────────────────────────────────── Typographies
-   Titres — **Rubik Dirt** (SIL Open Font License), la police d'affiche abîmée
-   retenue pour le logo et les titres.
-
-   La charte mentionne Gagalin, mais Gagalin est « free for personal use » :
-   son usage par une organisation exige une licence commerciale Fontfabric.
-   Le jour où elle est achetée, déposer son woff2 sous `public/fonts/titres.woff2`
-   et **recalculer les coefficients `.mot-*`** ci-dessous à partir des chasses
-   réelles de la police — ils sont propres à Rubik Dirt.
+   Titres — **Rubik Mono One** (SIL Open Font License). C'est une grasse très
+   large : un titre y tient nettement moins de caractères par ligne que dans une
+   police d'affiche ordinaire. D'où l'interlettrage négatif et les tailles
+   volontairement contenues — vérifier les titres longs avant de les agrandir.
 
    Texte — Poppins (SIL OFL).
 
@@ -96,43 +92,11 @@ body {
   .titre {
     font-family: var(--font-titre), Impact, sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.005em;
-    line-height: 0.92;
+    /* Rubik Mono One est déjà très large : on resserre pour gagner de la place */
+    letter-spacing: -0.03em;
+    line-height: 1.06;
     font-weight: 400;
-  }
-
-  /* ─────────────────────────── Logo « ON VEUT VIVRE »
-     Chaque mot est dimensionné pour occuper exactement la même largeur.
-     Coefficients = 1 ÷ chasse_du_mot_à_1em, mesurés sur la police des titres.
-     Si la police change, les recalculer — ne pas ajuster à l'œil.          */
-  .lockup {
-    --l: 16rem;
-    display: block;
-    width: var(--l);
-  }
-  .lockup > span {
-    display: block;
-    font-family: var(--font-titre), Impact, sans-serif;
-    font-weight: 400;
-    letter-spacing: 0;
-    white-space: nowrap;
-  }
-  .mot-canicules       { font-size: calc(var(--l) * 0.1971); line-height: calc(var(--l) * 0.158); }
-  .mot-incendies       { font-size: calc(var(--l) * 0.1956); line-height: calc(var(--l) * 0.158); }
-  .mot-empoisonnements { font-size: calc(var(--l) * 0.1026); line-height: calc(var(--l) * 0.158); }
-  .mot-on              { font-size: calc(var(--l) * 0.6748); line-height: 0.80; margin-top: 0.06em; }
-  .mot-veut            { font-size: calc(var(--l) * 0.3555); line-height: 0.84; }
-
-  .badge-vivre {
-    display: block;
-    width: var(--l);
-    font-size: calc(var(--l) * 0.2836);
-    line-height: 0.80;
-    padding: 0.17em 0 0.23em;
-    border-radius: 0.22em;
-    text-align: center;
-    transform: rotate(-1.6deg);
-    margin-top: 0.10em;
+    word-break: break-word;
   }
 
   /* Le motif « pastille » du logo, réutilisé comme surligneur dans les titres */
@@ -140,7 +104,7 @@ body {
     display: inline-block;
     background: #ff751f;
     color: #fffcf5;
-    padding: 0.04em 0.26em 0.12em;
+    padding: 0.06em 0.22em 0.1em;
     border-radius: 0.22em;
     transform: rotate(-1.4deg);
   }

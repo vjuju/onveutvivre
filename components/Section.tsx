@@ -33,7 +33,7 @@ export function TitreSection({
       {surtitre && (
         <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-orange-lien">{surtitre}</p>
       )}
-      <h2 className="titre text-4xl text-encre sm:text-5xl lg:text-6xl">{children}</h2>
+      <h2 className="titre text-[1.75rem] text-encre sm:text-4xl lg:text-5xl">{children}</h2>
     </div>
   );
 }

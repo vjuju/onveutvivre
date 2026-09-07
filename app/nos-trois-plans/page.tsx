@@ -49,7 +49,7 @@ export default function PagePlans() {
           {plans.map((p) => (
             <article key={p.numero} className={`carte border-t-4 bg-fond ${teintes[p.accent].bord}`}>
               <p className={`titre text-5xl ${teintes[p.accent].texte} opacity-45`}>{p.numero}</p>
-              <h2 className="titre mt-3 text-2xl text-encre">{p.titre}</h2>
+              <h2 className="titre mt-3 text-lg text-encre">{p.titre}</h2>
               <p className="mt-4 text-sm leading-relaxed text-encre/75">
                 <Accentue>{p.texte}</Accentue>
               </p>
@@ -59,7 +59,7 @@ export default function PagePlans() {
       </Section>
 
       <Section fond="beige">
-        <h2 className="titre max-w-4xl text-3xl text-encre sm:text-4xl">
+        <h2 className="titre max-w-4xl text-2xl text-encre sm:text-3xl">
           Pour payer ces trois plans, nous exigeons que contribuent celles et ceux qui en tirent
           profit.
         </h2>
@@ -67,7 +67,7 @@ export default function PagePlans() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {financements.map((f) => (
             <div key={f.titre} className="carte bg-fond">
-              <h3 className="titre text-xl text-orange-lien">{f.titre}</h3>
+              <h3 className="titre text-base text-orange-lien">{f.titre}</h3>
               <p className="mt-3 text-sm leading-relaxed text-encre/75">
                 <Accentue>{f.texte}</Accentue>
               </p>

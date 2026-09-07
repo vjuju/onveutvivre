@@ -55,7 +55,7 @@ export default function PageAppel() {
       {/* Le texte intégral */}
       <Section>
         <div className="mx-auto max-w-3xl">
-          <h2 className="titre text-3xl text-encre sm:text-4xl">Le texte intégral</h2>
+          <h2 className="titre text-2xl text-encre sm:text-3xl">Le texte intégral</h2>
 
           <div className="mt-8 space-y-4">
             <p className="titre text-xl text-encre">{appel.ouverture}</p>
@@ -65,24 +65,24 @@ export default function PageAppel() {
 
             <Liste items={appel.savaient} className="!mt-6" />
 
-            <h3 className="titre !mt-12 text-2xl text-orange-lien">{appel.mobilises.titre}</h3>
+            <h3 className="titre !mt-12 text-xl text-orange-lien">{appel.mobilises.titre}</h3>
             {appel.mobilises.paragraphes.map((p, i) => (
               <Paragraphe key={i}>{p}</Paragraphe>
             ))}
 
             {appel.exigences.map((e) => (
               <div key={e.titre} className="space-y-4">
-                <h3 className="titre !mt-12 text-2xl text-orange-lien">{e.titre}</h3>
+                <h3 className="titre !mt-12 text-xl text-orange-lien">{e.titre}</h3>
                 <Paragraphe>{e.texte}</Paragraphe>
               </div>
             ))}
 
-            <h3 className="titre !mt-12 text-2xl text-orange-lien">{appel.financement.titre}</h3>
+            <h3 className="titre !mt-12 text-xl text-orange-lien">{appel.financement.titre}</h3>
             <Paragraphe>{appel.financement.intro}</Paragraphe>
             <Liste items={appel.financement.points} />
             <Paragraphe>{appel.financement.conclusion}</Paragraphe>
 
-            <h3 className="titre !mt-12 text-2xl text-orange-lien">{appel.final.titre}</h3>
+            <h3 className="titre !mt-12 text-xl text-orange-lien">{appel.final.titre}</h3>
             {appel.final.paragraphes.map((p, i) => (
               <Paragraphe key={i}>{p}</Paragraphe>
             ))}

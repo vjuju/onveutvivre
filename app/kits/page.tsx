@@ -63,14 +63,14 @@ export default function Kits() {
 
       {/* ── 1. Affiches et flyers, en tête ── */}
       <Section fond="beige">
-        <h2 className="titre text-3xl text-encre sm:text-4xl">Affiches et flyers</h2>
+        <h2 className="titre text-2xl text-encre sm:text-3xl">Affiches et flyers</h2>
         <p className="mt-3 max-w-2xl text-sm text-encre2">
           À partager par messagerie, à enregistrer dans vos photos, à imprimer en A3.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div className="carte bg-fond">
-            <h3 className="titre text-xl text-orange-lien">Les visuels de la mobilisation</h3>
+            <h3 className="titre text-base text-orange-lien">Les visuels de la mobilisation</h3>
             <p className="mt-3 text-sm leading-relaxed text-encre/75">
               Les affiches A3 et les flyers sont en cours de mise à disposition sur cette page. En
               attendant,{' '}
@@ -85,7 +85,7 @@ export default function Kits() {
           </div>
 
           <div className="carte bg-fond">
-            <h3 className="titre text-xl text-orange-lien">Dossier de presse</h3>
+            <h3 className="titre text-base text-orange-lien">Dossier de presse</h3>
             <p className="mt-3 text-sm leading-relaxed text-encre/75">
               Journalistes : le dossier de presse et les éléments de langage sont disponibles sur
               demande. <strong className="font-semibold text-encre">Nous répondons sous 48 heures.</strong>
@@ -99,7 +99,7 @@ export default function Kits() {
 
       {/* ── 2. Logos ── */}
       <Section>
-        <h2 className="titre text-3xl text-encre sm:text-4xl">Logos</h2>
+        <h2 className="titre text-2xl text-encre sm:text-3xl">Logos</h2>
         <p className="mt-3 text-sm text-encre2">PNG haute définition, fond transparent.</p>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -139,9 +139,9 @@ export default function Kits() {
 
       {/* ── 3. Charte, en dernier ── */}
       <Section fond="beige">
-        <h2 className="titre text-3xl text-encre sm:text-4xl">Charte graphique</h2>
+        <h2 className="titre text-2xl text-encre sm:text-3xl">Charte graphique</h2>
         <p className="mt-3 max-w-2xl text-sm text-encre2">
-          Typographie des titres : <strong className="text-encre">Gagalin</strong>. Typographie de
+          Typographie des titres : <strong className="text-encre">Rubik Mono One</strong>. Typographie de
           texte : <strong className="text-encre">Poppins</strong>. Les couleurs sont relevées
           directement sur les fichiers du logo.
         </p>

@@ -35,7 +35,7 @@ export default function Signataires() {
       </Section>
 
       <Section fond="beige">
-        <h2 className="titre text-3xl text-encre sm:text-4xl">Les organisations signataires</h2>
+        <h2 className="titre text-2xl text-encre sm:text-3xl">Les organisations signataires</h2>
         <div className="carte mt-8 bg-fond">
           <p className="text-sm leading-relaxed text-encre/75">
             La liste complète des organisations signataires est en cours de consolidation et sera
@@ -54,7 +54,7 @@ export default function Signataires() {
       </Section>
 
       <Section>
-        <h2 className="titre text-3xl text-encre sm:text-4xl">Témoignages</h2>
+        <h2 className="titre text-2xl text-encre sm:text-3xl">Témoignages</h2>
         <p className="mt-3 max-w-2xl text-sm text-encre2">
           Pourquoi marcher le 26 septembre ? Les témoignages des signataires qui ont accepté de
           partager leur engagement seront publiés ici.

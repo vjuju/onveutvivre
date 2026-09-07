@@ -87,14 +87,18 @@ jamais avec du texte orange — c'est le procédé de la marque elle-même.
 
 ### Typographies
 
-- **Titres : Rubik Dirt** (SIL OFL), dans `public/fonts/titres.woff2`.
-  La charte mentionne **Gagalin**, mais Gagalin est *free for personal use* :
-  son usage par une organisation exige une **licence commerciale Fontfabric**.
-  Le jour où elle est achetée, déposer son woff2 sous ce même nom, puis
-  **recalculer les coefficients `.mot-*`** de `globals.css` à partir des chasses
-  réelles de la police (`taille = largeur_du_bloc ÷ chasse_du_mot_à_1em`) —
-  ceux en place sont propres à Rubik Dirt.
+- **Titres : Rubik Mono One** (SIL OFL), dans `public/fonts/titres.woff2`.
+  C'est une grasse **très large** : un titre y tient nettement moins de
+  caractères par ligne qu'ailleurs. D'où, dans `globals.css`, un interlettrage
+  négatif (`-0.03em`) et des tailles volontairement contenues — un cran plus bas
+  que ce qu'on mettrait avec une police d'affiche ordinaire. Avant d'agrandir un
+  titre, vérifier les plus longs (« Pour payer ces trois plans… », les intitulés
+  du pied-de-page).
 - **Texte : Poppins** (SIL OFL), en 400/500/600/700.
+
+Pour changer la police des titres : déposer le woff2 sous `public/fonts/titres.woff2`
+et reprendre les tailles. Rien d'autre à toucher — le logo est une image, il ne
+dépend plus de la police.
 
 Les deux sont **auto-hébergées** dans `public/fonts` : aucun appel à Google
 Fonts, donc aucune IP de visiteur envoyée à un tiers.
@@ -108,6 +112,11 @@ Chaque logo existe en deux tailles : `<nom>-web.png` (760 px de côté max,
 affiché sur le site) et `<nom>.png` (1600 px, proposé au téléchargement sur
 `/kits`). Tous ont un **fond transparent** — le blanc d'origine a été détouré
 depuis les bords, ce qui préserve la réserve blanche du mot VIVRE.
+
+Le **favicon** (`public/favicon.ico`, `favicon.png`, `icone-192.png`,
+`icone-180.png`) est le bloc ON VEUT VIVRE sur fond blanc, recadré avec une
+marge régulière. À 16 px il se lit comme une tache orange plus que comme un
+mot : c'est le prix d'un logo à trois lignes dans un onglet.
 
 Quatre variantes exposées par le composant :
 
