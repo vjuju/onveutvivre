@@ -5,7 +5,7 @@ export const site = {
   domaine: 'onveutvivre.fr',
   url: 'https://onveutvivre.fr',
   description:
-    "Les enfants veulent vivre. Parents et adultes, signons l'appel pour soutenir les mobilisations lycéennes et nous mobiliser massivement jusqu'au 14 novembre.",
+    "Les enfants veulent vivre. Parents et adultes, signons l'appel pour soutenir les mobilisations lycéennes et nous mobiliser massivement le 17 octobre et le 14 novembre.",
 };
 
 export const liens = {

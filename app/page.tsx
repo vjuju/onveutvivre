@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 const engagements = [
   {
-    titre: 'Soutenir les mobilisations lycéennes',
+    titre: 'Pour soutenir les mobilisations lycéennes',
     texte: 'Ravitaillement, cordons de protection, interpellation des élus…',
   },
   {
-    titre: 'Se mobiliser massivement',
+    titre: 'Pour se mobiliser massivement',
     texte:
-      "Dès maintenant, et le 14 novembre pour le climat et la journée des droits de l'enfance.",
+      "Dès maintenant, le 17 octobre et le 14 novembre pour le climat et la journée des droits de l'enfance.",
   },
 ];
 
@@ -31,13 +31,24 @@ export default function Accueil() {
           </h1>
 
           <p className="mt-6 text-lg leading-relaxed text-fond/90 sm:text-xl">
-            <strong className="font-semibold text-fond">
-              Parents, oncles et tantes, grands-parents, adultes&nbsp;:
-            </strong>{' '}
-            signez l&apos;appel et rejoignez le réseau de solidarité avec la jeunesse.
+            Nous parents, oncles et tantes, grands-parents et adultes, sommes révoltés par le sort
+            réservé aux enfants et la jeunesse légitimement mobilisés.
+          </p>
+          <p className="mt-4 text-lg font-semibold leading-relaxed text-fond sm:text-xl">
+            Les enfants veulent vivre, pas survivre. Nous ferons tout pour qu&apos;ils et elles
+            puissent faire entendre leurs voix&nbsp;!
           </p>
 
-          <ul className="mx-auto mt-8 max-w-xl space-y-4 text-left">
+          <Link
+            href="/signer/"
+            className="bouton-primaire mt-8 !px-10 !py-5 !text-lg shadow-xl shadow-encre/40 sm:!text-xl"
+          >
+            ✍ Signer l&apos;appel
+          </Link>
+
+          <h2 className="titre mt-12 text-lg sm:text-xl">Pourquoi est-ce important de signer&nbsp;?</h2>
+
+          <ul className="mx-auto mt-6 max-w-xl space-y-4 text-left">
             {engagements.map((e) => (
               <li key={e.titre} className="flex gap-3">
                 <span aria-hidden className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-orange" />
@@ -48,20 +59,13 @@ export default function Accueil() {
             ))}
           </ul>
 
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <Link
-              href="/signer/"
-              className="bouton-primaire !px-10 !py-5 !text-lg shadow-xl shadow-encre/40 sm:!text-xl"
-            >
-              ✍ Signer l&apos;appel
-            </Link>
-            <Link
-              href="/manifeste/"
-              className="text-sm font-medium text-fond/85 underline underline-offset-4 transition hover:text-fond"
-            >
-              Lire le manifeste
-            </Link>
-          </div>
+          {/* Texte orange-lien et non orange : l'orange pur tombe à 2,4:1 sur fond clair */}
+          <Link
+            href="/manifeste/"
+            className="bouton mt-10 bg-fond text-orange-lien hover:bg-fond2"
+          >
+            Lire le manifeste
+          </Link>
         </div>
       </div>
     </section>

@@ -58,7 +58,7 @@ export default function Manifeste() {
             </li>
             <li>À Lens, un adolescent a eu la main arrachée.</li>
             <li>
-              En tout, ce sont <strong>6&nbsp;000 mineurs et jeunes</strong> qui ont subi une garde
+              En tout, ce sont <strong>7&nbsp;000 mineurs et jeunes</strong> qui ont subi une garde
               à vue, parfois dans des conditions atroces.
             </li>
           </ul>
@@ -132,8 +132,8 @@ export default function Manifeste() {
           </ul>
           <p>
             Enfin, d&apos;ores et déjà nous appelons à une{' '}
-            <strong>mobilisation massive dans le cadre de la journée des droits de l&apos;enfance
-            le 14 novembre</strong>.
+            <strong>mobilisation massive le 17 octobre ainsi que le 14 novembre</strong> dans le
+            cadre de la journée des droits de l&apos;enfance.
           </p>
           <p>
             Étudier dans des conditions dignes est un droit fondamental, une nécessité pour une
