@@ -25,8 +25,32 @@ export default function Confidentialite() {
         <p>
           {site.domaine} ne dépose aucun cookie publicitaire, n&apos;utilise aucun traceur tiers et
           ne mesure pas votre navigation. Les typographies sont hébergées sur nos propres serveurs :
-          aucune requête n&apos;est envoyée à Google Fonts ni à un autre service tiers lors du
-          chargement des pages.
+          aucune requête n&apos;est envoyée à Google Fonts lors du chargement des pages.
+        </p>
+
+        <h3>La page d&apos;accueil est hébergée sur Notion</h3>
+        <p>
+          Le contenu de la page d&apos;accueil est une page Notion intégrée au site. En
+          l&apos;affichant, votre navigateur se connecte directement aux serveurs de Notion Labs,
+          Inc. (États-Unis), qui reçoivent à cette occasion votre adresse IP et les informations
+          techniques habituelles de votre navigateur, et peuvent déposer leurs propres cookies.
+          Ce traitement relève de la{' '}
+          <a
+            className="lien-souligne"
+            href="https://www.notion.com/notion/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            politique de confidentialité de Notion
+          </a>
+          .
+        </p>
+        <p>
+          Les autres pages du site, dont le{' '}
+          <a className="lien-souligne" href="/manifeste/">
+            manifeste
+          </a>
+          , ne font appel à aucun service tiers.
         </p>
 
         <h3>Les données de signature</h3>
