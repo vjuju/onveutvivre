@@ -4,13 +4,12 @@ export const site = {
   nom: 'On veut vivre',
   domaine: 'onveutvivre.fr',
   url: 'https://onveutvivre.fr',
-  dateMarche: 'Samedi 26 septembre 2026',
   description:
-    "Appel à mobilisation nationale pour le samedi 26 septembre 2026. Marchons partout en France pour le climat, le vivant, la paix et la justice sociale.",
+    "Les enfants veulent vivre. Parents et adultes, signons l'appel pour soutenir les mobilisations lycéennes et nous mobiliser massivement jusqu'au 14 novembre.",
 };
 
 export const liens = {
-  /** Page Notion affichée en pleine page sur l'accueil */
+  /** Formulaire Notion intégré sur /signer/ */
   notion: 'https://onestpret.notion.site/ebd//3f886e57ca1b804eb42fee2755f79cf8',
   signer: 'https://26septembre.org/#signer',
   signerOrganisation: 'https://26septembre.org/#signer',

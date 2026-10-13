@@ -28,9 +28,9 @@ export default function Confidentialite() {
           aucune requête n&apos;est envoyée à Google Fonts lors du chargement des pages.
         </p>
 
-        <h3>La page d&apos;accueil est hébergée sur Notion</h3>
+        <h3>Le formulaire de signature est hébergé sur Notion</h3>
         <p>
-          Le contenu de la page d&apos;accueil est une page Notion intégrée au site. En
+          Le formulaire de signature, sur la page « Signer l&apos;appel », est un formulaire Notion intégré au site. En
           l&apos;affichant, votre navigateur se connecte directement aux serveurs de Notion Labs,
           Inc. (États-Unis), qui reçoivent à cette occasion votre adresse IP et les informations
           techniques habituelles de votre navigateur, et peuvent déposer leurs propres cookies.
@@ -46,7 +46,8 @@ export default function Confidentialite() {
           .
         </p>
         <p>
-          Les autres pages du site, dont le{' '}
+          Les données que vous y saisissez sont donc enregistrées chez Notion. Les autres pages du
+          site, dont l&apos;accueil et le{' '}
           <a className="lien-souligne" href="/manifeste/">
             manifeste
           </a>
@@ -55,24 +56,10 @@ export default function Confidentialite() {
 
         <h3>Les données de signature</h3>
         <p>
-          Le formulaire de signature de l&apos;appel est hébergé sur la plateforme de la
-          mobilisation. Les données collectées sont : prénom, nom, adresse électronique et code
-          postal (obligatoires), téléphone et organisation (facultatifs).
+          Nous ne collectons que les informations demandées par le formulaire. Elles nous servent à
+          vous recontacter pour organiser le soutien aux mobilisations lycéennes et les prochaines
+          mobilisations.
         </p>
-        <ul>
-          <li>
-            <strong>Publication du nom :</strong> votre signature n&apos;apparaît publiquement que si
-            vous avez coché la case correspondante.
-          </li>
-          <li>
-            <strong>Recontact :</strong> nous ne vous écrivons pour les suites de la mobilisation que
-            si vous l&apos;avez accepté.
-          </li>
-          <li>
-            <strong>Lettre d&apos;information :</strong> l&apos;inscription est facultative et la
-            désinscription possible à tout moment, par le lien présent dans chaque envoi.
-          </li>
-        </ul>
         <p>
           Ces données servent uniquement à porter l&apos;appel et à organiser la mobilisation. Elles
           ne sont ni vendues, ni louées, ni transmises à des tiers à des fins commerciales.

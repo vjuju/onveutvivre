@@ -17,7 +17,7 @@ export default function MentionsLegales() {
         <h3>Éditeur du site</h3>
         <p>
           Le site {site.domaine} est édité par le collectif « On veut vivre », à l&apos;origine de
-          l&apos;appel à mobilisation nationale du 26 septembre 2026.
+          l&apos;appel « Les enfants veulent vivre ».
         </p>
         <p>
           Adresse : {contact.adresse}
@@ -43,7 +43,7 @@ export default function MentionsLegales() {
         <h3>Propriété intellectuelle</h3>
         <p>
           Les visuels, logos et textes de la mobilisation sont mis à disposition pour un usage
-          militant non commercial lié à la mobilisation du 26 septembre 2026. Merci de ne pas les
+          militant non commercial lié à la mobilisation. Merci de ne pas les
           modifier de façon à en altérer le sens.
         </p>
         <p>

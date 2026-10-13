@@ -7,12 +7,12 @@ import { site } from '@/content/site';
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: 'On veut vivre — Marche nationale du 26 septembre 2026',
+    default: 'On veut vivre — Les enfants veulent vivre',
     template: '%s — On veut vivre',
   },
   description: site.description,
   openGraph: {
-    title: 'On veut vivre — Marche nationale du 26 septembre 2026',
+    title: 'On veut vivre — Les enfants veulent vivre',
     description: site.description,
     url: site.url,
     siteName: site.nom,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'On veut vivre — Marche nationale du 26 septembre 2026',
+    title: 'On veut vivre — Les enfants veulent vivre',
     description: site.description,
     images: ['/logos/ovv-complet-couleur.png'],
   },

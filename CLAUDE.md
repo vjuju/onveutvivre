@@ -148,14 +148,18 @@ en diagonale, sans embarquer un moteur Markdown.
 
 ## Architecture des pages
 
-Le site est réduit à deux pages, avec la navbar (logo + Accueil / Manifeste) :
+Le site tient en trois pages, avec la navbar (logo + Accueil / Manifeste / Signer) :
 
 | URL | Contenu |
 |---|---|
-| `/` | la page Notion intégrée en pleine page (`liens.notion` dans `content/site.ts`) |
+| `/` | photo en pleine page (`public/images/`), message court et bouton « Signer l'appel » |
+| `/signer/` | le formulaire Notion intégré (`liens.notion` dans `content/site.ts`) |
 | `/manifeste/` | le manifeste « Les enfants veulent vivre » (`app/manifeste/page.tsx`) |
 
-Le contenu de l'accueil se modifie **dans Notion**, pas dans le dépôt.
+Les signatures sont enregistrées **dans Notion** ; le formulaire se modifie là-bas.
+La photo suit la même règle que les polices : nouveau fichier = nouveau nom
+(`manifestation-republique.v1.jpg`).
+L'appel à marcher le 26 septembre a été retiré du site.
 Les anciennes pages (`/appel/`, `/agir/`, `/kits/`…) ont été retirées ; leurs
 composants (`Carte`, `Formulaire`, `Compteur`…) restent dans `components/`.
 

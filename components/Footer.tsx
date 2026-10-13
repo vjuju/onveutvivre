@@ -9,6 +9,7 @@ const colonnes = [
     entrees: [
       { label: 'Accueil', href: '/' },
       { label: 'Manifeste', href: '/manifeste/' },
+      { label: "Signer l'appel", href: '/signer/' },
     ],
   },
   {
@@ -37,13 +38,13 @@ export default function Footer() {
           <div>
             <Marque variante="horizontal" largeur="11rem" className="mb-5" />
             <p className="titre mb-3 text-lg text-encre">
-              Marchons le samedi
+              Les enfants
               <br />
-              26 septembre 2026
+              veulent vivre
             </p>
             <p className="text-sm leading-relaxed text-encre2">
-              Partout en France, dans les métropoles et dans les bourgs de mille habitants, pour le
-              climat, le vivant, la paix et la justice sociale.
+              Parents, oncles et tantes, grands-parents et adultes solidaires des mobilisations
+              lycéennes, pour le climat et les droits de l&apos;enfance.
             </p>
 
             {/* Réseaux sociaux */}
