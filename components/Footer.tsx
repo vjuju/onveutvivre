@@ -5,21 +5,10 @@ import { liens, contact, site } from '@/content/site';
 
 const colonnes = [
   {
-    titre: "L'appel à mobilisation",
+    titre: 'Le site',
     entrees: [
-      { label: "Lire l'appel du 26 septembre", href: '/appel/' },
-      { label: "Signer l'appel", href: '/#signer' },
-      { label: 'Nos trois plans', href: '/nos-trois-plans/' },
-      { label: 'Les signataires', href: '/signataires/' },
-    ],
-  },
-  {
-    titre: 'Agir avec nous',
-    entrees: [
-      { label: 'Agir avec nous', href: '/agir/' },
-      { label: 'La carte des mobilisations', href: '/#carte' },
-      { label: 'Kits et documents', href: '/kits/' },
-      { label: 'Actualités', href: '/actualites/' },
+      { label: 'Accueil', href: '/' },
+      { label: 'Manifeste', href: '/manifeste/' },
     ],
   },
   {
@@ -43,7 +32,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-trait bg-fond2">
       <div className="mx-auto max-w-contenu px-4 py-16 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-3">
           {/* Colonne 1 */}
           <div>
             <Marque variante="horizontal" largeur="11rem" className="mb-5" />

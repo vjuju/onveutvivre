@@ -10,6 +10,8 @@ export const site = {
 };
 
 export const liens = {
+  /** Page Notion affichée en pleine page sur l'accueil */
+  notion: 'https://onestpret.notion.site/ebd//3f886e57ca1b804eb42fee2755f79cf8',
   signer: 'https://26septembre.org/#signer',
   signerOrganisation: 'https://26septembre.org/#signer',
   telegram: 'https://t.me/Infos_26_Septembre',

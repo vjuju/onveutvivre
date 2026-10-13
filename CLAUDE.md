@@ -148,18 +148,16 @@ en diagonale, sans embarquer un moteur Markdown.
 
 ## Architecture des pages
 
-La page d'accueil **s'arrête à la carte des mobilisations**. Le reste vit dans de
-vraies pages, avec de vraies URLs pour la navigation :
+Le site est réduit à deux pages, avec la navbar (logo + Accueil / Manifeste) :
 
 | URL | Contenu |
 |---|---|
-| `/` | lockup + compteur, formulaire de signature, carte |
-| `/appel/` | pourquoi maintenant, chiffres clés, citations, texte intégral |
-| `/nos-trois-plans/` | les trois plans et leur financement |
-| `/agir/` | les trois façons d'agir, en faire plus, qui sommes-nous |
-| `/actualites/` | le calendrier des rendez-vous |
-| `/kits/` | affiches et flyers, logos, charte |
-| `/signataires/` | compteur, organisations, témoignages |
+| `/` | la page Notion intégrée en pleine page (`liens.notion` dans `content/site.ts`) |
+| `/manifeste/` | le manifeste « Les enfants veulent vivre » (`app/manifeste/page.tsx`) |
+
+Le contenu de l'accueil se modifie **dans Notion**, pas dans le dépôt.
+Les anciennes pages (`/appel/`, `/agir/`, `/kits/`…) ont été retirées ; leurs
+composants (`Carte`, `Formulaire`, `Compteur`…) restent dans `components/`.
 
 ## Ce qu'on a relevé de 26septembre.org (4 sept. 2026)
 
