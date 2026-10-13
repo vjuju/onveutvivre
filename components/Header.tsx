@@ -5,14 +5,12 @@ import { usePathname } from 'next/navigation';
 import { LogoLien } from './Logo';
 
 const navigation = [
-  { label: 'Accueil', href: '/' },
   { label: 'Manifeste', href: '/manifeste/' },
 ];
 
 export default function Header() {
   const chemin = usePathname();
-  const actif = (href: string) =>
-    href === '/' ? chemin === '/' : chemin?.replace(/\/?$/, '/') === href;
+  const actif = (href: string) => chemin?.replace(/\/?$/, '/') === href;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-trait bg-fond/95 backdrop-blur-md">
@@ -27,7 +25,7 @@ export default function Header() {
               aria-current={actif(n.href) ? 'page' : undefined}
               className={`rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-fond2 hover:text-encre ${
                 actif(n.href) ? 'text-encre' : 'text-encre/75'
-              } ${n.href === '/' ? 'hidden sm:block' : ''}`}
+              }`}
             >
               {n.label}
             </Link>
