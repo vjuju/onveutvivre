@@ -154,6 +154,7 @@ Le site tient en trois pages, avec la navbar (logo + Accueil / Manifeste / Signe
 |---|---|
 | `/` | photo en pleine page (`public/images/`), message court et bouton « Signer l'appel » |
 | `/signer/` | le formulaire Notion intégré (`liens.notion` dans `content/site.ts`) |
+| `/presse/` | contact presse (`presse` dans `content/site.ts`), lié depuis le pied-de-page |
 | `/manifeste/` | le manifeste « Les enfants veulent vivre » (`app/manifeste/page.tsx`) |
 
 Les signatures sont enregistrées **dans Notion** ; le formulaire se modifie là-bas.

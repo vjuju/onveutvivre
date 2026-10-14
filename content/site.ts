@@ -292,3 +292,11 @@ export const contact = {
   presse: 'contact@26septembre.org',
   adresse: '27 rue de Paradis, 95100 Argenteuil',
 };
+
+/** Contact presse affiché sur /presse/ */
+export const presse = {
+  nom: 'Salomé Riffault',
+  telephone: '06 86 41 53 43',
+  telephoneLien: '+33686415343',
+  email: 'salome.riffault@amisdelaterre.org',
+};
